@@ -7,14 +7,18 @@ by D
 ## Features
 
 - **Simultaneous Predictions**: Seamlessly perform regression and binary classification in a single step.
-- **Regressor Selection**: Choose from **Lasso**, **Ridge**, or **LinearRegression(OLS)** as the base regression model.
-- **Dynamic Cutoff Tuning**: Automatically tunes the cutoff value to maximize the Youden index, F1 score, or F2 score, making it particularly suited for educational settings where identifying at-risk students is crucial.
+- **Regressor Selection (choose one)**: Choose from **Lasso**, **Ridge**, or **LinearRegression(OLS)** as the base regression model.
+- **Dynamic Cutoff Tuning (choose one)**: Automatically tunes the cutoff value to maximize the Youden index, F1 score, or F2 score, user choose metric type.
+
+
+<img src='https://github.com/098765d/dualPredictor/blob/890d66657e969334fb46d5b97cafbeb2d04fdff6/figs/regressor_metric.png' width="300" height="200">
   
+
+**1. Youden Index (J)**
+
 ![](https://miro.medium.com/v2/resize:fit:842/1*LVilqC3cy4AgyC1wD4RH-A.png)
 
 https://miro.medium.com/v2/resize:fit:842/1*LVilqC3cy4AgyC1wD4RH-A.png
-
-**1. Youden Index (J)**
 
  $$J= Recall + Specificity - 1$$
 J is a measure of the overall performance of a binary classifier. It is calculated as the sum of the recall and specificity minus 1. A high J statistic indicates that the classifier is performing well on both positive and negative cases.
