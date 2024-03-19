@@ -147,3 +147,7 @@ cm_plot = plot_cm(y_label_true, y_label_pred)
 feature_plot = plot_feature_coefficients(coef=dual_clf.coef_, feature_names=dual_clf.feature_names_in_)
 ```
 ![](https://github.com/098765d/dualPredictor/blob/17cea04496fef61cfa8985852bd5de0d104ead8a/figs/feature_coefficients.png)
+
+## Another Demo use UCI's Student Performance Dataset
+https://www.kaggle.com/code/ddatad/dual-predictor-demo
+
