@@ -31,7 +31,7 @@ class DualModel(BaseEstimator, RegressorMixin):
         self.y_label_true_=y_label_true
 
         # Tune the optimal cut-off
-        cut_offs = np.linspace(self.default_cut_off, max(y) * 0.8, 20)
+        cut_offs = np.linspace(self.default_cut_off, max(y) * 0.8, 50)
         metrics = []
 
         for cut_off in cut_offs:
