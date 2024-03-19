@@ -58,26 +58,30 @@ y = housing.target  # Target variable (e.g., housing prices)
 X = housing.data  # Feature matrix
 ```
 ```python
-# Initializing and fitting the DualModel
-# 'ols' for Ordinary Least Squares, a default cut-off value is provided
-# The metric parameter specifies the method to tune the optimal cut-off
+# Initializing and fitting the DualModel, 'ols' for Ordinary Least Squares, a default cut-off value is provided
 dual_clf = DualModel(model_type='ols', default_cut_off=2.5)
+# The metric parameter specifies the method to tune the optimal cut-off
 dual_clf.fit(X, y, metric='youden_index')
-
+```
+model attributes
+```python
 # Accessing the true binary labels generated based on the default cut-off
 y_label_true = dual_clf.y_label_true_
 # Retrieving the optimal cut-off value tuned based on the Youden Index
 optimal_cut_off = dual_clf.optimal_cut_off
-
+```
+model predict on new data
+```python
 # Predicting grades and binary classification (at-risk or not) based on the optimal cut-off
 y_pred, y_label_pred = dual_clf.predict(X)
 ```
-y_pred
+
+**y_pred (regression result)**
 ```python
 array([4.13164983, 3.97660644, 3.67657094, ..., 0.17125141, 0.31910524,
        0.51580363])
 ```
-y_label_pred
+**y_label_pred (binary classification result)**
 ```python
 array([0, 0, 0, ..., 1, 1, 1])
 ```
