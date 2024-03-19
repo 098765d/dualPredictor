@@ -19,6 +19,7 @@ class DualModel(BaseEstimator, RegressorMixin):
             self.model = RidgeCV(cv=5)
         elif model_type == 'ols':
             self.model = LinearRegression()
+            self.model.alpha_ = 0  # Set alpha to 0 for OLS
         else:
             raise ValueError("Unsupported model type. Choose 'lasso', 'ridge', or 'ols'.")
 
