@@ -61,6 +61,10 @@ housing = fetch_california_housing(as_frame=True)
 y = housing.target  # Target variable (e.g., housing prices)
 X = housing.data  # Feature matrix
 ```
+### Train Model based on X and y
+
+choose model_type and metric
+
 ```python
 # Initializing and fitting the DualModel, 'ols' for Ordinary Least Squares, a default cut-off value is provided
 dual_clf = DualModel(model_type='ols', default_cut_off=2.5)
