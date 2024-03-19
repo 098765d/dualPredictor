@@ -1,4 +1,6 @@
-
+on:
+  workflow_dispatch:
+  
 jobs:
   pypi-publish:
     name: Publish release to PyPI
