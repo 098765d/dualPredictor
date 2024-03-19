@@ -2,7 +2,7 @@
 
 by D
 
-`dualPredictor` is an innovative Python package designed for educational analytics, offering a novel approach by providing simultaneous **regression** and **binary classification** results. Utilizing well-established regression models such as Lasso, Ridge, and OLS (Ordinary Least Squares) from scikit-learn, `dualPredictor` goes a step further by introducing a cutoff-based binary classification. This dual approach allows users not only to predict student grades but also to identify at-risk students efficiently, bridging the gap between traditional regression and classification methods.
+`dualPredictor` is can provide simultaneous **regression** and **binary classification** results for tabular dataset. Utilizing well-established regression models such as Lasso, Ridge, and OLS (Ordinary Least Squares) from scikit-learn, `dualPredictor` goes a step further by introducing a cutoff-based binary classification. This dual approach allows users not only to predict student grades but also to identify at-risk students efficiently, bridging the gap between traditional regression and classification methods.
 
 ## Features
 
