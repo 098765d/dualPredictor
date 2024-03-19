@@ -1,6 +1,6 @@
-# DualPredictor
+# dualPredictor
 
-`DualPredictor` is an innovative Python package designed for educational analytics, offering a novel approach by providing simultaneous regression and binary classification results. Utilizing well-established regression models such as Lasso, Ridge, and OLS (Ordinary Least Squares) from scikit-learn, `DualPredictor` goes a step further by introducing a cutoff-based binary classification. This dual approach allows users not only to predict student grades but also to identify at-risk students efficiently, bridging the gap between traditional regression and classification methods.
+`dualPredictor` is an innovative Python package designed for educational analytics, offering a novel approach by providing simultaneous regression and binary classification results. Utilizing well-established regression models such as Lasso, Ridge, and OLS (Ordinary Least Squares) from scikit-learn, `dualPredictor` goes a step further by introducing a cutoff-based binary classification. This dual approach allows users not only to predict student grades but also to identify at-risk students efficiently, bridging the gap between traditional regression and classification methods.
 
 ## Features
 
@@ -11,19 +11,18 @@
 
 ## Installation
 
-Install `DualPredictor` directly from PyPI using pip:
+Install `dualPredictor` directly from PyPI using pip:
 
 ```bash
-pip install DualPredictor
+pip install dualPredictor
 ```
 ## Example Usage
 
-Install `DualPredictor` directly from PyPI using pip:
 
 ```python
 from sklearn.datasets import fetch_california_housing
-from DualPredictor.dual_model import DualModel
-from DualPredictor.model_plot import plot_scatter,plot_feature_coefficients,plot_cm
+from dualPredictor.dual_model import DualModel
+from dualPredictor.model_plot import plot_scatter,plot_feature_coefficients,plot_cm
 
 # Fetching a dataset from scikit-learn for demonstration purposes
 housing = fetch_california_housing(as_frame=True)
