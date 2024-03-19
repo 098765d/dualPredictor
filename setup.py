@@ -8,7 +8,7 @@ setup(
     description="A Python package for simultaneous regression and binary classification for educational analytics.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/098765d/DualPredictor.git",
+    url="https://github.com/098765d/dualPredictor.git",
     packages=find_packages(),
     install_requires=[
         "numpy",
