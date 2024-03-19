@@ -14,7 +14,7 @@ by D
 
 https://miro.medium.com/v2/resize:fit:842/1*LVilqC3cy4AgyC1wD4RH-A.png
 
-**1. J (Youden's J statistic)**
+**1. Youden Index (J)**
 
  $$J= Recall + Specificity - 1$$
 J is a measure of the overall performance of a binary classifier. It is calculated as the sum of the recall and specificity minus 1. A high J statistic indicates that the classifier is performing well on both positive and negative cases.
