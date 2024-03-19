@@ -4,7 +4,7 @@ setup(
     name="dualPredictor",
     version="0.0.1",
     author="Dong",
-    author_email="no@email",
+    author_email="no@email.com",
     description="A Python package for simultaneous regression and binary classification for educational analytics.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
