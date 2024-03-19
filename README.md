@@ -67,7 +67,43 @@ dual_clf = DualModel(model_type='ols', default_cut_off=2.5)
 # The metric parameter specifies the method to tune the optimal cut-off
 dual_clf.fit(X, y, metric='youden_index')
 ```
-model attributes
+
+The `DualModel` object has the following attributes:
+
+* **`alpha_`**: The alpha value of the model. This value is only available if the model is a Lasso or Ridge regression model. (OLS do not have alpha)
+* **`coef_`**: The coefficients of the model.
+* **`intercept_`**: The intercept of the model.
+* **`feature_names_in_`**: The names of the features that were used to train the model.
+* **`optimal_cut_off`**: The optimal cut-off value that was determined by the specified metric.
+* **`y_label_true_`**: The true binary labels that were generated using the optimal cut-off value.
+
+
+```python
+print(dual_clf.coef_)
+[ 4.36693293e-01  9.43577803e-03 -1.07322041e-01  6.45065694e-01
+ -3.97638942e-06 -3.78654265e-03 -4.21314378e-01 -4.34513755e-01]
+print(dual_clf.intercept_)
+-36.94192020718441
+print(dual_clf.feature_names_in_)
+['MedInc' 'HouseAge' 'AveRooms' 'AveBedrms' 'Population' 'AveOccup'
+ 'Latitude' 'Longitude']
+print(dual_clf.optimal_cut_off)
+2.5679
+print(dual_clf.y_label_true_)
+0        0
+1        0
+2        0
+3        0
+4        0
+        ..
+20635    1
+20636    1
+20637    1
+20638    1
+20639    1
+Name: MedHouseVal, Length: 20640, dtype: int64
+```
+
 ```python
 # Accessing the true binary labels generated based on the default cut-off
 y_label_true = dual_clf.y_label_true_
@@ -89,6 +125,7 @@ array([4.13164983, 3.97660644, 3.67657094, ..., 0.17125141, 0.31910524,
 ```python
 array([0, 0, 0, ..., 1, 1, 1])
 ```
+
 ## Exmaples of Model Performances Plot
 ```python
 # Visualizations
