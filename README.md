@@ -141,7 +141,7 @@ feature_plot = plot_feature_coefficients(coef=dual_clf.coef_, feature_names=dual
 ```
 ![](https://github.com/098765d/dualPredictor/blob/17cea04496fef61cfa8985852bd5de0d104ead8a/figs/feature_coefficients.png)
 
-## Another Example on UCI student Performance Dataset
+## Example 1: UCI student Performance Dataset
 [Link to UCI student Performance Dataset](https://archive.ics.uci.edu/dataset/320/student+performance)
 
 https://www.kaggle.com/code/ddatad/dual-predictor-demo?scriptVersionId=167940301
@@ -167,6 +167,25 @@ If default cut_off = 10 (label = 1 will be fail students), select lasso + youden
 - Number of false alarms: 22
 - Classification rate: 0.882
 - R2 = 0.88, MSE = 1.3
+
+## Example 2: Local University Students Program GPA Prediction
+
+Since Test Set Students does not have y-label, therefore only able to show the train set performance.
+default cut-off = 2.5 , lasso + youden_index
+
+**Train set performance**
+- Number of data points: 154
+- Number of true positive (label=1): 5
+- Number of miss detects: 0
+- Number of false alarms: 6
+- Classification rate: 0.961
+- R2 = 0.96
+- Optimal_cut_off=2.70
+
+**Test set performance**
+- Number of data points: 71
+- Number of label = 1 prediction: 3
+
 
 ### References:
 
