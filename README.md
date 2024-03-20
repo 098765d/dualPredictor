@@ -168,7 +168,7 @@ If default cut_off = 10 (label = 1 will be fail students), select lasso + youden
 - Classification rate: 0.882
 - R2 = 0.88, MSE = 1.3
 
-## Example 2: Local University Students Program GPA Prediction
+## Example 2: a Local University Students Program GPA Prediction
 
 Since Test Set Students does not have y-label, therefore only able to show the train set performance.
 default cut-off = 2.5 , lasso + youden_index
@@ -186,6 +186,32 @@ default cut-off = 2.5 , lasso + youden_index
 - Number of data points: 71
 - Number of label = 1 prediction: 3
 
+## Example 3: Object Oriented Programming Class Student Grades from Mugla Sitki Kocman University | '19 OOP Class Student Grades
+
+https://www.kaggle.com/datasets/onurduman/grades/data
+
+Train/Test Data Information:
+- Number of data points in training set: 33 (60.0%)
+- Number of data points in test set: 22 (40.0%)
+
+If default cut_off = 50 (label = 1 will be fail students), select ols + youden
+
+**Train set performance**
+- Number of data points: 33
+- Number of true positive (label=1): 21
+- Number of miss detects: 1
+- Number of false alarms: 1
+- Classification rate: 0.939
+- R2 = 0.94
+- Optimal_cut_off= 50
+
+**Test set performance**
+- Number of data points: 22
+- Number of true positive (label=1): 13
+- Number of miss detects: 2
+- Number of false alarms: 0
+- Classification rate: 0.909
+- R2 = 0.65
 
 ### References:
 
