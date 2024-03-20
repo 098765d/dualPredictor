@@ -46,6 +46,12 @@ Install `dualPredictor` directly from PyPI using pip:
 ```bash
 pip install dualPredictor
 ```
+or Directly install from the Github Repo:
+
+```bash
+pip install git+https://github.com/098765d/dualPredictor.git
+```
+
 Dependencies
 dualPredictor requires:
 - numpy
