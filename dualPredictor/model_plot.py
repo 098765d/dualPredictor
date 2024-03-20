@@ -54,7 +54,7 @@ def plot_cm(y_label_true, y_label_pred):
 
     # Print the number of data points, number of miss detects, number of false alarms, and classification rate
     print("Number of data points:", num_data_points)
-    print("Number of true positive (label=1):", num_tp)
+    print("Number of label=1 points:", num_tp)
     print("Number of miss detects:", num_miss_detects)
     print("Number of false alarms:", num_false_alarms)
     print("Classification rate:", classification_rate)
