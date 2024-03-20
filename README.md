@@ -143,6 +143,7 @@ feature_plot = plot_feature_coefficients(coef=dual_clf.coef_, feature_names=dual
 
 ## Another Example on UCI student Performance Dataset
 [Link to UCI student Performance Dataset](https://archive.ics.uci.edu/dataset/320/student+performance)
+
 https://www.kaggle.com/code/ddatad/dual-predictor-demo?scriptVersionId=167940301
 
 Train/Test Data Information:
