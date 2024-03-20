@@ -93,12 +93,12 @@ The `DualModel` class is a custom regressor that combines a base regression mode
 
 ### Attributes
 
-* **`alpha_`**: The alpha value of the model. This value is only available if the model is a Lasso or Ridge regression model. (OLS do not have alpha)
-* **`coef_`**: The coefficients of the model.
-* **`intercept_`**: The intercept of the model.
-* **`feature_names_in_`**: The names of the features used to train the model.
-* **`optimal_cut_off`**: The optimal cut-off value determined by the specified metric.
-* **`y_label_true_`**: The true binary labels are generated using the default cut-off value.
+- `alpha_`: The alpha value of the model. This value is only available if the model is a Lasso or Ridge regression model. (OLS do not have alpha)
+- `coef_`: The coefficients of the model.
+- `intercept_`: The intercept of the model.
+- `feature_names_in_`**: The names of the features used to train the model.
+- `optimal_cut_off`: The optimal cut-off value determined by the specified metric.
+- `y_label_true_`: The true binary labels are generated using the default cut-off value.
   
 ### Example
 
