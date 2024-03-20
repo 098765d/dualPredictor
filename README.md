@@ -158,6 +158,7 @@ If default cut_off = 10 (label = 1 will be fail students), select lasso + youden
 - Number of miss detects: 2
 - Number of false alarms: 61
 - Classification rate: 0.861
+- R2 = 0.83, MSE = 1.68
 
 **Test set performance**
 - Number of data points: 195
@@ -165,6 +166,7 @@ If default cut_off = 10 (label = 1 will be fail students), select lasso + youden
 - Number of miss detects: 1
 - Number of false alarms: 22
 - Classification rate: 0.882
+- R2 = 0.88, MSE = 1.3
 
 ### References:
 
