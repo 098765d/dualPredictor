@@ -9,7 +9,7 @@ by D
 - **Regressor Selection (choose one)**: Choose from **Lasso**, **Ridge**, or **LinearRegression(OLS)** as the base regression model.
 - **Dynamic Cutoff Tuning metrics (choose one)**: Automatically tunes the cutoff value to maximize the **Youden index**, **F1**, or **F2** score. Users can choose a metrics type.
 
-<img src='https://github.com/098765d/dualPredictor/blob/164c72550abb64a81feb6df3f63019a2c576150f/figs/regressor_metric.png' width="300" height="200">
+<img src='https://github.com/098765d/dualPredictor/blob/164c72550abb64a81feb6df3f63019a2c576150f/figs/regressor_metric.png'>
 
 
 **1. Youden Index (J)**
