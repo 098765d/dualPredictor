@@ -9,6 +9,7 @@ def plot_scatter(y_pred, y_true):
 
     # Calculate the r2 and mse
     r2 = r2_score(y_true, y_pred)
+    r2 = abs(r2)
     mse = mean_squared_error(y_true, y_pred)
 
     # Create a figure and axes
