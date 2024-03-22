@@ -10,14 +10,11 @@ by D
 - **Dynamic Cutoff Tuning metrics (choose one)**: Automatically tunes the cutoff value to maximize the **Youden index**, **F1**, or **F2** score. Users can choose a metrics type.
 
 <img src='https://github.com/098765d/dualPredictor/blob/890d66657e969334fb46d5b97cafbeb2d04fdff6/figs/regressor_metric.png' width="300" height="200">
-  
+
 
 **1. Youden Index (J)**
 
-![](https://miro.medium.com/v2/resize:fit:842/1*LVilqC3cy4AgyC1wD4RH-A.png)
-
-https://miro.medium.com/v2/resize:fit:842/1*LVilqC3cy4AgyC1wD4RH-A.png
-
+![](https://github.com/098765d/dualPredictor/blob/3bac582341a569c925a9f6871372a34c03db89a3/figs/metrics.png)
  $$J= Recall + Specificity - 1$$
 J is a measure of the overall performance of a binary classifier. It is calculated as the sum of the recall and specificity minus 1. A high J statistic indicates that the classifier performs well on positive and negative cases.
 
