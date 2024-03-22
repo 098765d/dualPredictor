@@ -12,6 +12,7 @@ by D
 <img src='https://github.com/098765d/dualPredictor/blob/164c72550abb64a81feb6df3f63019a2c576150f/figs/regressor_metric.png'>
 
 
+
 **1. Youden Index (J)**
 
 ![](https://github.com/098765d/dualPredictor/blob/3bac582341a569c925a9f6871372a34c03db89a3/figs/metrics.png)
@@ -29,11 +30,6 @@ F1 score is another measure of the overall performance of a binary classifier. I
 
 $$F_\beta = (1 + \beta^2) \cdot \frac{precision \cdot recall}{\beta^2 \cdot precision + recall}$$
 F-score with factor beta is a generalization of the F1 score that allows for different weights to be given to precision and recall. A beta value less than 1 indicates that the F-score is prone to precision, while a beta value greater than 1 indicates that the F-score is prone to recall.
-
-**In educational settings**
-
-In educational settings, avoiding miss detects (i.e., failing to identify at-risk students) is important. However, it is also important to avoid false alarms (i.e., identifying students as at-risk when they are not). Therefore, using a measure prone to recall is often desirable, such as the F1 score with beta > 1.
-Youden's J statistic and the F1 score are both measures that balance the avoidance of miss detects and the avoidance of false alarms. However, Youden's J statistic is less sensitive to false alarms (Specificity is less sensitive to false alarms compared to Precision) than the F1 score.
 
 
 ## Installation
@@ -137,78 +133,6 @@ cm_plot = plot_cm(y_label_true, y_label_pred)
 feature_plot = plot_feature_coefficients(coef=dual_clf.coef_, feature_names=dual_clf.feature_names_in_)
 ```
 ![](https://github.com/098765d/dualPredictor/blob/17cea04496fef61cfa8985852bd5de0d104ead8a/figs/feature_coefficients.png)
-
-## Example 1: UCI student Performance Dataset
-[Link to UCI student Performance Dataset](https://archive.ics.uci.edu/dataset/320/student+performance)
-
-https://www.kaggle.com/code/ddatad/dual-predictor-demo?scriptVersionId=167940301
-
-Train/Test Data Information:
-- Number of data points in training set: 454 (70.0%)
-- Number of data points in test set: 195 (30.0%)
-
-If default cut_off = 10 (label = 1 will be fail students), select lasso + youden
-
-**Train set performance**
-- Number of data points: 454
-- Number of total positive (label=1): 74
-- Number of miss detects: 2
-- Number of false alarms: 61
-- Classification rate: 0.861
-- R2 = 0.83, MSE = 1.68
-
-**Test set performance**
-- Number of data points: 195
-- Number of total positive (label=1): 26
-- Number of miss detects: 1
-- Number of false alarms: 22
-- Classification rate: 0.882
-- R2 = 0.88, MSE = 1.3
-
-## Example 2: a Local University Students Program GPA Prediction
-
-Since Test Set Students does not have y-label, therefore only able to show the train set performance.
-default cut-off = 2.5 , lasso + youden_index
-
-**Train set performance**
-- Number of data points: 154
-- Number of true positive (label=1): 5
-- Number of miss detects: 0
-- Number of false alarms: 6
-- Classification rate: 0.961
-- R2 = 0.96
-- Optimal_cut_off=2.70
-
-**Test set performance**
-- Number of data points: 71
-- Number of label = 1 prediction: 3
-
-## Example 3: Object Oriented Programming Class Student Grades from Mugla Sitki Kocman University | '19 OOP Class Student Grades
-
-https://www.kaggle.com/datasets/onurduman/grades/data
-
-Train/Test Data Information:
-- Number of data points in training set: 33 (60.0%)
-- Number of data points in test set: 22 (40.0%)
-
-If default cut_off = 50 (label = 1 will be fail students), select ols + youden
-
-**Train set performance**
-- Number of data points: 33
-- Number of true positive (label=1): 21
-- Number of miss detects: 1
-- Number of false alarms: 1
-- Classification rate: 0.939
-- R2 = 0.94
-- Optimal_cut_off= 50
-
-**Test set performance**
-- Number of data points: 22
-- Number of true positive (label=1): 13
-- Number of miss detects: 2
-- Number of false alarms: 0
-- Classification rate: 0.909
-- R2 = 0.65
 
 ### References:
 
