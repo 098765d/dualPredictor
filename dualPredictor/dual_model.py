@@ -51,8 +51,10 @@ class DualModel(BaseEstimator, RegressorMixin):
 
             metrics.append(metric_value)
 
-        max_index = np.argmax(metrics)
-        self.optimal_cut_off = cut_offs[max_index]
+        max_metric = max(metrics)
+        max_indices = [i for i, x in enumerate(metrics) if x == max_metric]
+        middle_index = max_indices[len(max_indices) // 2]
+        self.optimal_cut_off = cut_offs[middle_index]
 
         return self
 
