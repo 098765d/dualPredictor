@@ -12,6 +12,9 @@ def plot_scatter(y_pred, y_true):
     r2 = abs(r2)
     mse = mean_squared_error(y_true, y_pred)
 
+    print('R2 = ',r2)
+    print('MSE = ',mse)
+
     # Create a figure and axes
     fig, ax = plt.subplots(figsize=(5, 5), dpi=500)
 
