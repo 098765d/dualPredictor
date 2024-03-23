@@ -9,13 +9,13 @@ by D
 - **Regressor Selection (choose one)**: Choose from **Lasso**, **Ridge**, or **LinearRegression(OLS)** as the base regression model.
 - **Dynamic Cutoff Tuning metrics (choose one)**: Automatically tunes the cutoff value to maximize the **Youden index**, **F1**, or **F2** score. Users can choose a metrics type.
 
-<img src='https://github.com/098765d/dualPredictor/blob/164c72550abb64a81feb6df3f63019a2c576150f/figs/regressor_metric.png'>
+<img src='https://github.com/098765d/dualPredictor/raw/164c72550abb64a81feb6df3f63019a2c576150f/figs/regressor_metric.png'>
 
 
 
 **1. Youden Index (J)**
 
-![](https://github.com/098765d/dualPredictor/blob/3bac582341a569c925a9f6871372a34c03db89a3/figs/metrics.png)
+![](https://github.com/098765d/dualPredictor/raw/3bac582341a569c925a9f6871372a34c03db89a3/figs/metrics.png)
  $$J= Recall + Specificity - 1$$
 J is a measure of the overall performance of a binary classifier. It is calculated as the sum of the recall and specificity minus 1. A high J statistic indicates that the classifier performs well on positive and negative cases.
 
@@ -122,17 +122,17 @@ y_pred, y_label_pred = dual_clf.predict(X)
 # Plotting the actual vs. predicted values to assess regression performance
 scatter_plot_fig = plot_scatter(y_pred, y)
 ```
-![](https://github.com/098765d/dualPredictor/blob/17cea04496fef61cfa8985852bd5de0d104ead8a/figs/scatter_plot.png)
+![](https://github.com/098765d/dualPredictor/raw/17cea04496fef61cfa8985852bd5de0d104ead8a/figs/scatter_plot.png)
 ```python
 # Plotting the confusion matrix to evaluate binary classification performance
 cm_plot = plot_cm(y_label_true, y_label_pred)
 ```
-![](https://github.com/098765d/dualPredictor/blob/17cea04496fef61cfa8985852bd5de0d104ead8a/figs/cm_plot.png)
+![](https://github.com/098765d/dualPredictor/raw/17cea04496fef61cfa8985852bd5de0d104ead8a/figs/cm_plot.png)
 ```python
 # Plotting the non-zero coefficients of the regression model to interpret feature importance
 feature_plot = plot_feature_coefficients(coef=dual_clf.coef_, feature_names=dual_clf.feature_names_in_)
 ```
-![](https://github.com/098765d/dualPredictor/blob/17cea04496fef61cfa8985852bd5de0d104ead8a/figs/feature_coefficients.png)
+![](https://github.com/098765d/dualPredictor/raw/17cea04496fef61cfa8985852bd5de0d104ead8a/figs/feature_coefficients.png)
 
 ### References:
 
