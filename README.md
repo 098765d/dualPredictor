@@ -1,141 +1,60 @@
-# dualPredictor
+# dualPredictor: An Open-Source Tool for Grade Prediction and At-Risk Student Identification
 
-by D
+by Dong, Cheng, and Kan
 
-`dualPredictor` is a Python package that can provide simultaneous **regression** and **binary classification** results for tabular datasets. 
+## Introduction
 
-
-- **Simultaneous Predictions**: A model that perform **regression** and binary **classification** tasks simultaneously
-- **Regressor Selection (choose one)**: Choose from **Lasso**, **Ridge**, or **LinearRegression(OLS)** as the base regression model.
-- **Dynamic Cutoff Tuning metrics (choose one)**: Automatically tunes the cutoff value to maximize the **Youden index**, **F1**, or **F2** score. Users can choose a metrics type.
-
-<img src='https://github.com/098765d/dualPredictor/raw/164c72550abb64a81feb6df3f63019a2c576150f/figs/regressor_metric.png'>
-
-
-
-**1. Youden Index (J)**
-
-![](https://github.com/098765d/dualPredictor/raw/3bac582341a569c925a9f6871372a34c03db89a3/figs/metrics.png)
- $$J= Recall + Specificity - 1$$
-J is a measure of the overall performance of a binary classifier. It is calculated as the sum of the recall and specificity minus 1. A high J statistic indicates that the classifier performs well on positive and negative cases.
-
-* **Recall** measures a classifier's ability to identify positive cases correctly. A high recall means that the classifier is avoiding miss detects.
-* **Specificity** measures the ability of a classifier to identify negative cases correctly. A high specificity means that the classifier is avoiding false alarms.
-
-**2. F scores (Option F1, F2 in Package)**
-
-$$F1 = 2 \cdot \frac{precision \cdot recall}{precision + recall}$$
-
-F1 score is another measure of the overall performance of a binary classifier. It is calculated as the harmonic mean of the precision and recall. A high F1 score indicates that the classifier is performing well on both positive and negative cases.
-
-$$F_\beta = (1 + \beta^2) \cdot \frac{precision \cdot recall}{\beta^2 \cdot precision + recall}$$
-F-score with factor beta is a generalization of the F1 score that allows for different weights to be given to precision and recall. A beta value less than 1 indicates that the F-score is prone to precision, while a beta value greater than 1 indicates that the F-score is prone to recall.
-
+The dualPredictor is an innovative educational analytics tool that combines regression analysis with binary classification to forecast student academic outcomes and identify at-risk students. This user guide provides a step-by-step walkthrough on how to install and use the dualPredictor package.
 
 ## Installation
 
-Install `dualPredictor` directly from PyPI using pip:
+You can install the dualPredictor package via PyPI or GitHub. Choose one of the following methods:
+
+### PyPI Installation
 
 ```bash
 pip install dualPredictor
 ```
-or Directly install from the Github Repo:
-
+### GitHub Installation
 ```bash
 pip install git+https://github.com/098765d/dualPredictor.git
 ```
 
-Dependencies
-dualPredictor requires:
-- numpy
-- scikit-learn
-- matplotlib
-- seaborn
-
-## DualModel
-
-The `DualModel` class is a custom regressor that combines a base regression model (lasso, ridge, or OLS) with a dual classification approach. It allows for tuning an optimal cut-off value to classify samples into two classes based on the predicted regression values.
-
-### Parameters
-
-- `model_type` (str, default='lasso'): The base regression model to use. Supported options are 'lasso', 'ridge', and 'ols' (Ordinary Least Squares).
-
-- `metric` (str, default='youden_index'): The metric used to tune the optimal cut-off value. Supported options are 'f1_score', 'f2_score', and 'youden_index'. 
-
-- `default_cut_off` (float, default=0.5): The default cut-off value used to create binary labels. Samples with regression values below the cut-off are labeled as 0, and samples above or equal to the cut-off are labeled as 1.
-
-### Methods
-
-- `fit(X, y)`: Fit the DualModel to the training data.
-
-    - Parameters:
-        - `X` (array-like of shape (n_samples, n_features)): The input training data.
-        - `y` (array-like of shape (n_samples,)): The target values.
-
-    - Returns:
-        - `self`: Fitted DualModel instance.
-
-- `predict(X)`: Predict the input data's regression values and binary classifications.
-
-    - Parameters:
-        - `X` (array-like of shape (n_samples, n_features)): The input data for prediction.
-
-    - Returns:
-        - `grade_predictions` (array-like of shape (n_samples,)): The predicted regression values.
-        - `class_predictions` (array-like of shape (n_samples,)): The predicted binary classifications based on the optimal cut-off.
-
-### Attributes
-
-- `alpha_`: The alpha value of the model. This value is only available if the model is a Lasso or Ridge regression model. (OLS do not have alpha)
-- `coef_`: The coefficients of the model.
-- `intercept_`: The intercept of the model.
-- `feature_names_in_`**: The names of the features used to train the model.
-- `optimal_cut_off`: The optimal cut-off value determined by the specified metric.
-- `y_label_true_`: The true binary labels are generated using the default cut-off value.
-  
-### Example
-
+## Getting Started
+**1. Import the Package:** Import the dualPredictor package in your Python environment.
 ```python
-# Import the DualModel class
-from dual_model import DualModel
+from dualPredictor import DualModel, model_plot
+```
+**2. Model Initialization:** Create a DualModel instance by specifying the regression model type ('lasso', 'ridge', or 'ols'), the metric for cutoff tuning ('f1_score', 'f2_score', or 'youden_index'), and a default cutoff value.
+```python
+model = DualModel(model_type='lasso', metric='f1_score', default_cut_off=2.5)
+```
+**3. Model Fitting:** Fit the model to your dataset using the fit method.
+```python
+model.fit(X, y)
+```
+- X: The input training data (pandas DataFrame).
+- y: The target values (predicted grades).
 
-# Initializing and fitting the DualModel
-# 'ols' for Ordinary Least Squares, a default cut-off value is provided
-# The metric parameter specifies the method to tune the optimal cut-off
-dual_clf = DualModel(model_type='ols', metric='youden_index', default_cut_off=1)
-dual_clf.fit(X, y)
-
-# Accessing the true binary labels generated based on the default cut-off
-y_label_true = dual_clf.y_label_true_
-
-# Retrieving the optimal cut-off value tuned based on the Youden Index
-optimal_cut_off = dual_clf.optimal_cut_off
-
-# Predicting grades (y_pred) and binary classification (at-risk or not) based on the optimal cut-off (y_label_pred)
-y_pred, y_label_pred = dual_clf.predict(X)
+**4. Predictions:** Use the prediction method to generate grade predictions and at-risk classifications.
+  ```python
+predictions = model.predict(X)
 ```
 
-
-## Examples of Model Performances Plot
+**5.Visualization:** Visualize the model's performance using the model_plot module.
 ```python
-# Visualizations
-# Plotting the actual vs. predicted values to assess regression performance
-scatter_plot_fig = plot_scatter(y_pred, y)
-```
-![](https://github.com/098765d/dualPredictor/raw/17cea04496fef61cfa8985852bd5de0d104ead8a/figs/scatter_plot.png)
-```python
-# Plotting the confusion matrix to evaluate binary classification performance
-cm_plot = plot_cm(y_label_true, y_label_pred)
-```
-![](https://github.com/098765d/dualPredictor/raw/17cea04496fef61cfa8985852bd5de0d104ead8a/figs/cm_plot.png)
-```python
-# Plotting the non-zero coefficients of the regression model to interpret feature importance
-feature_plot = plot_feature_coefficients(coef=dual_clf.coef_, feature_names=dual_clf.feature_names_in_)
-```
-![](https://github.com/098765d/dualPredictor/raw/17cea04496fef61cfa8985852bd5de0d104ead8a/figs/feature_coefficients.png)
+# Scatter plot for regression analysis
+model_plot.plot_scatter(y_pred, y_true)
 
-### References:
+# Confusion matrix for binary classification
+model_plot.plot_cm(y_label_true, y_label_pred)
 
-- [Youden's J statistic - Wikipedia](https://en.wikipedia.org/wiki/Youden%27s_J_statistic)
-- [F-score - Wikipedia](https://en.wikipedia.org/wiki/F-score)
-- [Scikit-learn - Model Evaluation](https://scikit-learn.org/stable/modules/model_evaluation.html)
+# Feature importance plot
+model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.feature_names_in_)
+```
+
+## Notes for Practice
+- Choose the regression model and metric based on your dataset's characteristics and the specific requirements of your educational context.
+- Set a well-informed default cutoff for binary classification to define at-risk students accurately.
+- Utilize dynamic cutoff tuning to refine classification thresholds, especially in imbalanced datasets.
+The dualPredictor tool empowers educators with data-driven insights to enhance learning outcomes and support at-risk students. By following this guide, you can effectively harness the power of the dualPredictor to make informed decisions in your educational setting.
