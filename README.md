@@ -1,4 +1,4 @@
-# dualPredictor: An Open-Source Tool for Grade Prediction and At-Risk Student Identification
+# dualPredictor: An Open-Source Tool for Simultaneously Grade Prediction and At-Risk Student Classification
 
 by Dong, Cheng, and Kan
 
