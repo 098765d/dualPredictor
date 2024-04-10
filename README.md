@@ -6,7 +6,7 @@ by Dong, Cheng, and Kan
 
 The dualPredictor is a tool that combines regression analysis with binary classification to forecast student academic outcomes and identify at-risk students. This user guide provides a step-by-step walkthrough on how to install and use the dualPredictor package. The figure below illustrates the mechanism of how dualPredictor generates dual output (regression and classification) by combining a regressor and a metric.
 
-![](https://github.com/098765d/dualPredictor/raw/b4cd8dd4b2bd5098b52734bae4a5d0814ee1a4ca/figs/how_dual_works.png)
+![](https://github.com/098765d/dualPredictor/raw/eb30145140a93d355342340d2a7ab256ccbbbf6e/figs/how_dual_works.png)
 **Fig 1**: Mechanism of how dualPredictor generates dual outputs.
 
 ## Motivation
