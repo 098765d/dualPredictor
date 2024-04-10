@@ -35,7 +35,7 @@ You can install the dualPredictor package via PyPI or GitHub. Choose one of the 
 ```bash
 pip install dualPredictor
 ```
-### GitHub Installation
+### GitHub Installation (Recommended; Latest Version)
 ```bash
 pip install git+https://github.com/098765d/dualPredictor.git
 ```
