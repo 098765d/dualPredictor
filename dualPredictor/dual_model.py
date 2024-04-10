@@ -13,6 +13,8 @@ class DualModel(BaseEstimator, RegressorMixin):
         self.model = None
         self.optimal_cut_off = None
         self.y_label_true_=None
+        self.metrics=None
+        self.cutoffs=None
 
         if model_type == 'lasso':
             self.model = LassoCV(cv=5)
@@ -35,7 +37,7 @@ class DualModel(BaseEstimator, RegressorMixin):
                     raise ValueError("The default cut-off must be smaller than the maximum value of y.")
 
         # Tune the optimal cut-off
-        cut_offs = np.linspace(self.default_cut_off, max(y) * 0.9, 100)
+        cut_offs = np.linspace(self.default_cut_off, max(y), 55)
         metrics = []
 
         for cut_off in cut_offs:
@@ -55,6 +57,8 @@ class DualModel(BaseEstimator, RegressorMixin):
         max_indices = [i for i, x in enumerate(metrics) if x == max_metric]
         middle_index = max_indices[len(max_indices) // 2]
         self.optimal_cut_off = cut_offs[middle_index]
+        self.metrics=metrics
+        self.cutoffs=cut_offs
 
         return self
 
@@ -62,6 +66,14 @@ class DualModel(BaseEstimator, RegressorMixin):
         grade_predictions = self.model.predict(X)
         class_predictions = (grade_predictions < self.optimal_cut_off).astype(int)
         return grade_predictions, class_predictions
+
+    @property
+    def metrics_(self):
+        return self.metrics
+
+    @property
+    def cutoffs_(self):
+        return self.cutoffs
 
     @property
     def alpha_(self):
