@@ -4,7 +4,9 @@ by Dong, Cheng, and Kan
 
 ## Introduction
 
-The dualPredictor is an innovative educational analytics tool that combines regression analysis with binary classification to forecast student academic outcomes and identify at-risk students. This user guide provides a step-by-step walkthrough on how to install and use the dualPredictor package.
+The dualPredictor is a tool that combines regression analysis with binary classification to forecast student academic outcomes and identify at-risk students. This user guide provides a step-by-step walkthrough on how to install and use the dualPredictor package. The figure below illustrates the mechanism of how dualPredictor generates dual output (regression and classification) by combining a regressor and a metric.
+
+![](https://github.com/098765d/dualPredictor/raw/b4cd8dd4b2bd5098b52734bae4a5d0814ee1a4ca/figs/how_dual_works.png)
 
 ## Motivation
 The motivation behind the dualPredictor package is to make the use of complex models as simple as possible for all users, regardless of their coding experience. The model package is designed using the same syntax as the popular scikit-learn models, making it easy for users with experience in scikit-learn to quickly start using the dualPredictor. The model attributes, model methods(model.fit(X, y); model.predict(X)) are intentionally designed to mimic the scikit-learn model object, providing a familiar and user-friendly experience for user.
