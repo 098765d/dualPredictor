@@ -7,7 +7,7 @@ by Dong, Cheng, and Kan
 The dualPredictor is an innovative educational analytics tool that combines regression analysis with binary classification to forecast student academic outcomes and identify at-risk students. This user guide provides a step-by-step walkthrough on how to install and use the dualPredictor package.
 
 ## Motivation
-The motivation behind the dualPredictor package is to make the use of complicated models as simple as possible for all users with limited code experience. The model package is designed using the same syntax as the popular scikit-learn models, making it easier for users with experience in scikit-learn to quickly start using the dualPredictor with just a single line of code. The attributes, model fitting (model.fit(X, y)), and prediction methods (model.predict(X)) are intentionally designed to mimic the scikit-learn model object, providing a familiar and user-friendly experience for data scientists and educators alike.
+The motivation behind the dualPredictor package is to make the use of complex models as simple as possible for all users, regardless of their coding experience. The model package is designed using the same syntax as the popular scikit-learn models, making it easy for users with experience in scikit-learn to quickly start using the dualPredictor. The model attributes, model methods(model.fit(X, y); model.predict(X)) are intentionally designed to mimic the scikit-learn model object, providing a familiar and user-friendly experience for user.
 ```python
 # intialize the model, specify the parameters
 model = DualModel(model_type='lasso', metric='f1_score', default_cut_off=2.5)
@@ -45,7 +45,8 @@ pip install git+https://github.com/098765d/dualPredictor.git
 ```python
 from dualPredictor import DualModel, model_plot
 ```
-**2. Model Initialization:** Create a DualModel instance by specifying the regression model type ('lasso', 'ridge', or 'ols'), the metric for cutoff tuning ('f1_score', 'f2_score', or 'youden_index'), and a default cutoff value.
+**2. Model Initialization:** 
+Create a DualModel instance by specifying the regression model type ('lasso', 'ridge', or 'ols'), the metric for cutoff tuning ('f1_score', 'f2_score', or 'youden_index'), and a default cutoff value.
 ```python
 model = DualModel(model_type='lasso', metric='youden_index', default_cut_off=2.5)
 ```
@@ -91,6 +92,8 @@ array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
        1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,
        0, 1, 0, 0, 0, 0])
 ```
+- y_train_pred: Predicted grades (regression result).
+- y_train_label_pred: Predicted at-risk status (binary label).
 
 **5.Visualization:** Visualize the model's performance using the model_plot module (Optional)
 ```python
@@ -103,10 +106,6 @@ model_plot.plot_cm(y_label_true, y_label_pred)
 # Feature importance plot
 model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.feature_names_in_)
 ```
-
-## Notes for Practice
-- Choose the regression model and metric based on your dataset's characteristics and the specific requirements of your educational context.
-- Set a well-informed default cutoff for binary classification to define at-risk students accurately.
 
 ## References
 
