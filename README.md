@@ -47,7 +47,7 @@ from dualPredictor import DualModel, model_plot
 ```
 **2. Model Initialization:** Create a DualModel instance by specifying the regression model type ('lasso', 'ridge', or 'ols'), the metric for cutoff tuning ('f1_score', 'f2_score', or 'youden_index'), and a default cutoff value.
 ```python
-model = DualModel(model_type='lasso', metric='f1_score', default_cut_off=2.5)
+model = DualModel(model_type='lasso', metric='youden_index', default_cut_off=2.5)
 ```
 **3. Model Fitting:** Fit the model to your dataset using the fit method.
 ```python
@@ -76,5 +76,10 @@ model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.featu
 ## Notes for Practice
 - Choose the regression model and metric based on your dataset's characteristics and the specific requirements of your educational context.
 - Set a well-informed default cutoff for binary classification to define at-risk students accurately.
-- Utilize dynamic cutoff tuning to refine classification thresholds, especially in imbalanced datasets.
-The dualPredictor tool empowers educators with data-driven insights to enhance learning outcomes and support at-risk students. By following this guide, you can effectively harness the power of the dualPredictor to make informed decisions in your educational setting.
+
+## References
+
+- Fluss, R., Faraggi, D., & Reiser, B. (2005). Estimation of the Youden Index and its associated cutoff point. _Biometrical Journal: Journal of Mathematical Methods in Biosciences_, 47(4), 458-472.
+- Hoerl, A. E., & Kennard, R. W. (1970). Ridge regression: Biased estimation for nonorthogonal problems. _Technometrics_, 12(1), 55-67.
+- Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., ... & Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. _The Journal of Machine Learning Research_, 12, 2825-2830.
+- Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. _Journal of the Royal Statistical Society Series B: Statistical Methodology_, 58(1), 267-288.
