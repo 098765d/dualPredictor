@@ -51,17 +51,48 @@ model = DualModel(model_type='lasso', metric='youden_index', default_cut_off=2.5
 ```
 **3. Model Fitting:** Fit the model to your dataset using the fit method.
 ```python
-model.fit(X, y)
+model.fit(X_train, y_train)
 ```
 - X: The input training data (pandas DataFrame).
 - y: The target values (predicted grades).
 
 **4. Predictions:** Use the prediction method to generate grade predictions and at-risk classifications.
   ```python
-predictions = model.predict(X)
+# example for demo only, model prediction dual output
+y_train_pred,y_train_label_pred=model.predict(X_train)
+
+# example of 1st model output = predicted scores (regression result)
+y_train_pred
+array([3.11893389, 3.06013236, 3.05418893, 3.09776197, 3.14898782,
+       2.37679417, 2.99367804, 2.77202421, 2.9603209 , 3.01052573,
+       2.99974477, 3.11286716, 3.14708887, 2.78737598, 2.88134869,
+       3.07517748, 3.17370297, 3.26615469, 3.2328493 , 2.98423656,
+       3.02108518, 2.87746064, 3.03491596, 2.89875586, 3.11079315,
+       3.23177653, 3.34291929, 2.57402463, 3.27019917, 3.20073168,
+       2.94514418, 3.25307175, 3.19145494, 3.15909904, 3.01481681,
+       3.07551728, 2.70973767, 3.07226583, 3.04692613, 2.8883649 ,
+       2.63833457, 3.03978663, 3.20974038, 3.13091091, 3.42223703,
+       3.07012029, 3.01981077, 3.22368756, 2.69376153, 2.93594929,
+       2.91493381, 3.22273808, 2.59310411, 3.00767959, 3.21869359,
+       2.86065334, 3.16865551, 3.11258742, 2.87948289, 2.64564212,
+       2.88646595, 3.48716006, 3.14482003, 3.15513751, 3.05299286,
+       3.20858237, 2.63172024, 2.42824269, 2.88352738, 3.0479989 ,
+       2.82405611, 3.16516577, 2.94324523, 3.4453079 , 2.48497569,
+       3.00081754, 3.04180887, 3.32979373, 3.12686642, 2.90359338,
+       2.95509896, 2.96429385, 3.44471154, 3.20251564, 3.08765075,
+       2.5607482 , 3.23986551, 3.19644891, 3.16032825, 2.68092384,
+       3.04907167, 2.8159268 , 3.05030088, 3.178372  ])
+
+# example of 2nd model output = predicted at-risk status (binary label)
+y_train_label_pred
+array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
+       0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
+       1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,
+       0, 1, 0, 0, 0, 0])
 ```
 
-**5.Visualization:** Visualize the model's performance using the model_plot module.
+**5.Visualization:** Visualize the model's performance using the model_plot module (Optional)
 ```python
 # Scatter plot for regression analysis
 model_plot.plot_scatter(y_pred, y_true)
