@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="dualPredictor",
-    version="0.0.7",
+    version="0.0.8",
     author="Dong",
     author_email="no@email.com",
     description="A Python package for simultaneous regression and binary classification for educational analytics.",
