@@ -106,3 +106,22 @@ def plot_feature_coefficients(coef, feature_names):
     ax.set_title(f"Feature Coefficient Plot - {num_of_features} features")
 
     return fig
+
+def plot_cutoff_tuning(cutoffs,metrics, xlabel="Cutoff", ylabel="Metric"):
+    """Plots the results of cutoff tuning.
+
+    Args:
+        dual_clf: A DualModel object.
+        title: The title of the plot.
+        xlabel: The label for the x-axis.
+        ylabel: The label for the y-axis.
+    """
+
+    # Plot the results
+    plt.figure(figsize=(7, 3.5), dpi=500)
+    plt.plot(cutoffs, metrics, label=f'{ylabel}', color='blue')
+    plt.title("Cutoff Tuning Plot")
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.legend()
+    plt.show()
