@@ -6,6 +6,26 @@ by Dong, Cheng, and Kan
 
 The dualPredictor is an innovative educational analytics tool that combines regression analysis with binary classification to forecast student academic outcomes and identify at-risk students. This user guide provides a step-by-step walkthrough on how to install and use the dualPredictor package.
 
+## Motivation
+The motivation behind the dualPredictor package is to make the use of complicated models as simple as possible for all users with limited code experience. The model package is designed using the same syntax as the popular scikit-learn models, making it easier for users with experience in scikit-learn to quickly start using the dualPredictor with just a single line of code. The attributes, model fitting (model.fit(X, y)), and prediction methods (model.predict(X)) are intentionally designed to mimic the scikit-learn model object, providing a familiar and user-friendly experience for data scientists and educators alike.
+```python
+# intialize the model, specify the parameters
+model = DualModel(model_type='lasso', metric='f1_score', default_cut_off=2.5)
+```
+
+| Model Methods | Description |
+|--------------|-------------|
+| `fit(X, y)`  | - **X**: The input training data, pandas data frame. <br> - **y**: The target values (predicted grade). <br> - **Returns**: Fitted DualModel instance |
+| `predict(X)` | - **X**: The input training data, pandas' data frame. |
+
+| Model Attributes   | Description                                                   |
+|--------------------|---------------------------------------------------------------|
+| `alpha_`           | The value of penalization in Lasso and ridge, for OLS alpha = 0 |
+| `coef_`            | The coefficients of the model                                  |
+| `Intercept_`       | The intercept value of the model                               |
+| `feature_names_in_`| Names of features during model training                        |
+| `optimal_cut_off`  | The optimal cut-off value that maximizes the metric            |
+
 ## Installation
 
 You can install the dualPredictor package via PyPI or GitHub. Choose one of the following methods:
