@@ -14,6 +14,7 @@ setup(
         "numpy",
         "scikit-learn",
         "matplotlib",
+        "shap",
         "seaborn",
     ],
     classifiers=[
