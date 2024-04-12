@@ -127,9 +127,6 @@ def plot_cutoff_tuning(cutoffs,metrics, xlabel="Cutoff", ylabel="Metric"):
     plt.legend()
     plt.show()
 
-import seaborn as sns
-import matplotlib.pyplot as plt
-import shap
 
 def plot_local_shap(model,X,idx):
   # compute SHAP values
@@ -168,5 +165,5 @@ def plot_local_shap(model,X,idx):
   plt.tight_layout()
   fig.dpi = 300
   return fig
-  
-shap_value_plot=plot_local_shap(model=model,X=X_test,idx = '8115D2B5')
+
+# shap_value_plot=plot_local_shap(model=model,X=X_test,idx = '8115D2B5')
