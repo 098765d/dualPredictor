@@ -160,8 +160,8 @@ def plot_local_shap(model,X,idx):
         ax.text(value, i, f'{value:.3f}', va='center')
 
     # Improve the plot's readability
-    ax.set_xlabel('SHAP Value')
-    ax.set_ylabel('Feature')
+    ax.set_xlabel('Shapley Value')
+    ax.set_ylabel('Feature Name')
     ax.set_title(f'Feature Contribution Plot - {idx}')
     plt.tight_layout()
     fig.dpi = 300
