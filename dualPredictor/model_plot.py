@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import r2_score, mean_squared_error, confusion_matrix, ConfusionMatrixDisplay
 import numpy as np
 import shap
+import pandas as pd
 
 
 def plot_scatter(y_pred, y_true):
