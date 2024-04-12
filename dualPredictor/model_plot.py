@@ -3,6 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.metrics import r2_score, mean_squared_error, confusion_matrix, ConfusionMatrixDisplay
 import numpy as np
+import shap
 
 
 def plot_scatter(y_pred, y_true):
@@ -125,3 +126,47 @@ def plot_cutoff_tuning(cutoffs,metrics, xlabel="Cutoff", ylabel="Metric"):
     plt.ylabel(ylabel)
     plt.legend()
     plt.show()
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+import shap
+
+def plot_local_shap(model,X,idx):
+  # compute SHAP values
+  explainer = shap.Explainer(model, X)
+  shap_values = explainer(X).values
+
+  feature_names=X.columns.values
+  position = X.index.get_loc(idx)
+  shap_val=shap_values[position]
+
+  x=shap_val
+  y=feature_names
+  df_shap = pd.DataFrame(x, y, columns=['value'])
+  df_shap['feature'] = df_shap.index
+
+  # Filter non-zero value rows
+  df_shap_filtered = df_shap[df_shap['value'] != 0]
+
+  # Sort by value in descending order
+  df_shap_filtered = df_shap_filtered.sort_values('value', ascending=False)
+  df_shap_filtered['positive contribution']=df_shap_filtered['value']>0
+
+  # Barplot
+  # Create the figure and axis objects
+  fig, ax = plt.subplots(figsize=(5.5, 4.5))  # Adjust the size as needed
+  sns.barplot(data=df_shap_filtered, x='value', y='feature', hue='positive contribution',ax=ax)
+
+  # Annotate values on the bars
+  for i, value in enumerate(df_shap_filtered['value']):
+      ax.text(value, i, f'{value:.3f}', va='center')
+
+   # Improve the plot's readability
+  ax.set_xlabel('SHAP Value')
+  ax.set_ylabel('Feature')
+  ax.set_title(f'Feature Contribution Plot - {idx}')
+  plt.tight_layout()
+  fig.dpi = 300
+  return fig
+  
+shap_value_plot=plot_local_shap(model=model,X=X_test,idx = '8115D2B5')
