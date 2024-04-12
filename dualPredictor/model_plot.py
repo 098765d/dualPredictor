@@ -152,7 +152,7 @@ def plot_local_shap(model,X,idx):
 
     # Barplot
     # Create the figure and axis objects
-    fig, ax = plt.subplots(figsize=(5.5, 4.5))  # Adjust the size as needed
+    fig, ax = plt.subplots(figsize=(5, 6.5))  # Adjust the size as needed
     sns.barplot(data=df_shap_filtered, x='value', y='feature', hue='positive contribution',ax=ax)
 
     # Annotate values on the bars
