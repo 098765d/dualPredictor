@@ -7,20 +7,24 @@ import pandas as pd
 
 
 def plot_scatter(y_pred, y_true):
+    # Create a copy of y_pred and impute NaN values with the mean
+    y_true_imputed = y_true.copy()
+    mean_value = np.nanmean(y_true)
+    y_true_imputed[np.isnan(y_true_imputed)] = mean_value
 
-    # Calculate the r2 and mse
-    r2 = r2_score(y_true, y_pred)
+    # Calculate the r2 and mse using the imputed values
+    r2 = r2_score(y_true_imputed, y_pred)
     r2 = abs(r2)
-    mse = mean_squared_error(y_true, y_pred)
+    mse = mean_squared_error(y_true_imputed, y_pred)
 
-    print('R2 = ',r2)
-    print('MSE = ',mse)
+    print('R2 = ', r2)
+    print('MSE = ', mse)
 
     # Create a figure and axes
     fig, ax = plt.subplots(figsize=(5, 5), dpi=500)
 
-    # Plot the data
-    sns.scatterplot(x=y_true, y=y_pred, ax=ax)
+    # Plot the data using the imputed values
+    sns.scatterplot(x=y_true_imputed, y=y_pred, ax=ax)
 
     # Set the x and y limits
     ax.set_xlim(min(y_true)*0.8, max(y_true)*1.1)
@@ -43,6 +47,7 @@ def plot_scatter(y_pred, y_true):
     ax.set_title(title)
 
     return fig
+
 
 
 def plot_cm(y_label_true, y_label_pred):
