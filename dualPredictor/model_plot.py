@@ -3,7 +3,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.metrics import r2_score, mean_squared_error, confusion_matrix, ConfusionMatrixDisplay
 import numpy as np
-import shap
 import pandas as pd
 
 
@@ -129,42 +128,35 @@ def plot_cutoff_tuning(cutoffs,metrics, xlabel="Cutoff", ylabel="Metric"):
     plt.show()
 
 
-def plot_local_shap(model,X,idx):
-    # compute SHAP values
-    explainer = shap.Explainer(model, X)
-    shap_values = explainer(X).values
 
-    feature_names=X.columns.values
-    position = X.index.get_loc(idx)
-    shap_val=shap_values[position]
+def plot_local_shap(model, X, idx, dpi=300, figsize=(5.5, 4.5)):
 
-    x=shap_val
-    y=feature_names
-    df_shap = pd.DataFrame(x, y, columns=['value'])
-    df_shap['feature'] = df_shap.index
+    # Calculate SHAP values for the specified row of X_train
+    w = model.coef_ # model coefficients
+    x = X.loc[idx] # the individual data point with index = idx
+    shaps = w * (x - X.mean()) # approximating linear Shapley Value for every feature
 
-    # Filter non-zero value rows
-    df_shap_filtered = df_shap[df_shap['value'] != 0]
+    shaps=np.round(shaps,2)
 
-    # Sort by value in descending order
-    df_shap_filtered = df_shap_filtered.sort_values('value', ascending=False)
-    df_shap_filtered['positive contribution']=df_shap_filtered['value']>0
+    # Create a DataFrame of SHAP values and feature names
+    shap_x = pd.DataFrame({'features': model.feature_names_in_, 'shap': shaps})
+    shap_x = shap_x[shap_x['shap'] != 0]
+    shap_x['positive_contribution'] = shap_x['shap'] > 0
+    # Sort bars by absolute SHAP value in descending order
+    shap_x = shap_x.sort_values(by='shap', ascending=False, key=abs)
 
-    # Barplot
-    # Create the figure and axis objects
-    fig, ax = plt.subplots(figsize=(5, 6.5))  # Adjust the size as needed
-    sns.barplot(data=df_shap_filtered, x='value', y='feature', hue='positive contribution',ax=ax)
+    # Plot SHAP values using seaborn barplot
+    fig, ax = plt.subplots(dpi=dpi, figsize=figsize)
+    ax = sns.barplot(data=shap_x, x='shap', y='features', hue='positive_contribution')
+    plt.title("Feature Contribution for ID = '{}'".format(idx))
+    plt.xlabel("Feature Contribution")
+    plt.ylabel("Feature")
 
-    # Annotate values on the bars
-    for i, value in enumerate(df_shap_filtered['value']):
-        ax.text(value, i, f'{value:.3f}', va='center')
+    for i in ax.containers:
+      ax.bar_label(i,)
 
-    # Improve the plot's readability
-    ax.set_xlabel('Shapley Value')
-    ax.set_ylabel('Feature Name')
-    ax.set_title(f'Feature Contribution Plot - {idx}')
-    plt.tight_layout()
-    fig.dpi = 300
+    # Set x-axis limits to 1.5 times the minimum SHAP value
+    plt.xlim(left=3.5 * shap_x['shap'].min(), right=1.15*shap_x['shap'].max())
     return fig
-
-# shap_value_plot=plot_local_shap(model=model,X=X_test,idx = '8115D2B5')
+    
+# local_shap=plot_local_shap(model, X_train, idx='8112C5A6')
