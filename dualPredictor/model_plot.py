@@ -156,7 +156,7 @@ def plot_local_shap(model, X, idx, dpi=300, figsize=(5.5, 4.5)):
       ax.bar_label(i,)
 
     # Set x-axis limits to 1.5 times the minimum SHAP value
-    plt.xlim(left=3.5 * shap_x['shap'].min(), right=1.15*shap_x['shap'].max())
+    plt.xlim(left=2.7 * shap_x['shap'].min(), right=1.2*shap_x['shap'].max())
     return fig
     
 # local_shap=plot_local_shap(model, X_train, idx='8112C5A6')
