@@ -2,15 +2,41 @@
 
 by Dong, Cheng, and Kan
 
-## Introduction
+## 1. Introduction
 
-The dualPredictor is a tool that combines regression analysis with binary classification to forecast student academic outcomes and identify at-risk students. This user guide provides a step-by-step walkthrough on how to install and use the dualPredictor package. The figure below illustrates the mechanism of how dualPredictor generates dual output (regression and classification) by combining a regressor and a metric.
+The dualPredictor tool combines regression analysis with binary classification to forecast student academic outcomes and identify at-risk students. This user guide provides a step-by-step walkthrough on how to install and use the dualPredictor package. The figure below illustrates the mechanism of how dualPredictor generates dual output (regression and classification) by combining a regressor and a metric.
 
+### 1.1 How does dualPredictor provide dual prediction output?
+- **Output 1 = Grade prediction**: from the trained regressor (e.g., Lasso)
+- Optimal cut-off: The default cut-off is the ground truth criteria to distinguish at-risk students, and the optimal cut-off is a tunned value that maximizes the metric (e.g., Youden Index) for a given regressor with the corresponding default cut-off value.
+- **Output 2 = Binary label prediction**:
+  - if predicted grade < optimal cut-off: label = 1
+  - if predicted grade >= optimal cut-off: label = 0
+    
 ![](https://github.com/098765d/dualPredictor/raw/eb30145140a93d355342340d2a7ab256ccbbbf6e/figs/how_dual_works.png)
-**Fig 1**: Mechanism of how dualPredictor generates dual outputs.
+**Fig 1**: How does dualPredictor provide dual prediction output?
 
-## Motivation
-The motivation behind the dualPredictor package is to make the use of complex models as simple as possible for all users, regardless of their coding experience. The model package is designed using the same syntax as the popular scikit-learn models, making it easy for users with experience in scikit-learn to quickly start using the dualPredictor. The model attributes, model methods(model.fit(X, y); model.predict(X)) are intentionally designed to mimic the scikit-learn model object, providing a familiar and user-friendly experience for user.
+### 1.2 How does dualPredictor provide model explanations?
+- Global level model explanations: Model's feature coefficients plot
+- **Local level model explanations**: Model's feature contribution for a specific data point
+    - How to get the feature contribution?
+
+      Given a linear model with a total number of M features, the model can be represented as:
+      ```math
+      f(x) = \sum_{j=1}^{M} w_j x_j + b 
+      ```
+      
+      The j-th feature contribution for the i-th data point can be approximated from the formula:
+      
+      ```math
+      \phi_i(f, x) = w_j (x_j - E[x_j])
+      ```
+
+      The formula can be seen as a simple approximation of the Shapley value from page 6 of the papaer [Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. Advances in neural information processing systems, 30.](https://dl.acm.org/doi/10.5555/3295222.3295230)
+       
+
+## 2. Motivation
+The dualPredictor package's motivation is to make complex models as simple as possible for all users, regardless of their coding experience. The model package is designed using the same syntax as the popular scikit-learn models, making it easy for users with experience in scikit-learn to start using the dualPredictor quickly. The model attributes and model methods(model.fit(X, y); model.predict(X)) is intentionally designed to mimic the scikit-learn model object, providing a familiar and user-friendly experience for the user.
 ```python
 # intialize the model, specify the parameters
 model = DualModel(model_type='lasso', metric='f1_score', default_cut_off=2.5)
@@ -29,7 +55,7 @@ model = DualModel(model_type='lasso', metric='f1_score', default_cut_off=2.5)
 | `feature_names_in_`| Names of features during model training                        |
 | `optimal_cut_off`  | The optimal cut-off value that maximizes the metric            |
 
-## Installation
+## 3. Installation
 
 You can install the dualPredictor package via PyPI or GitHub. Choose one of the following methods:
 
@@ -43,24 +69,24 @@ pip install dualPredictor
 pip install git+https://github.com/098765d/dualPredictor.git
 ```
 
-## Getting Started
-**1. Import the Package:** Import the dualPredictor package in your Python environment.
+## 4. User Guide with Examples of Code
+**Step 1. Import the Package:** Import the dualPredictor package in your Python environment.
 ```python
 from dualPredictor import DualModel, model_plot
 ```
-**2. Model Initialization:** 
+**Step 2. Model Initialization:** 
 Create a DualModel instance by specifying the regression model type ('lasso', 'ridge', or 'ols'), the metric for cutoff tuning ('f1_score', 'f2_score', or 'youden_index'), and a default cutoff value.
 ```python
 model = DualModel(model_type='lasso', metric='youden_index', default_cut_off=2.5)
 ```
-**3. Model Fitting:** Fit the model to your dataset using the fit method.
+**Step 3. Model Fitting:** Fit the model to your dataset using the fit method.
 ```python
 model.fit(X_train, y_train)
 ```
 - X: The input training data (pandas DataFrame).
 - y: The target values (predicted grades).
 
-**4. Predictions:** Use the prediction method to generate grade predictions and at-risk classifications.
+**Step 4. Predictions:** Use the prediction method to generate grade predictions and at-risk classifications.
   ```python
 # example for demo only, model prediction dual output
 y_train_pred,y_train_label_pred=model.predict(X_train)
@@ -98,35 +124,24 @@ array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 - y_train_pred: Predicted grades (regression result).
 - y_train_label_pred: Predicted at-risk status (binary label).
 
-**5.Visualization:** Visualize the model's performance using the model_plot module (Optional)
+**Step 5.Visualization:** Visualize the model's performance using the model_plot module (Optional)
 ```python
-# Scatter plot for regression analysis
+# Scatter plot for regression analysis - a
 model_plot.plot_scatter(y_pred, y_true)
 
-# Confusion matrix for binary classification
+# Confusion matrix for binary classification - b
 model_plot.plot_cm(y_label_true, y_label_pred)
 
-# Model's global explanation: Feature importance plot
+# Model's global explanation: Feature importance plot - c
 model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.feature_names_in_)
 
-# Model's local explanation: Feature contributions for each data point
+# Model's local explanation: Feature contributions for each data point - d
 # 'idx' is the index value used to locate a specific row in the dataframe
 plot_local_shap(X=X_test, model=model, idx='E115CCCD')
 ```
-### Theory behind the local explanation (from reference [3])
 
-**Corollary 1 (Linear SHAP)** Given a linear model (total M features)
-```math
-f(x) = \sum_{j=1}^{M} w_j x_j + b
-```
-
-the Shapley value for i-th data point can be approximated from:
-
-```math
-\phi_i(f, x) = w_j (x_j - E[x_j])
-```
-
-
+![Fig2](https://github.com/098765d/dualPredictor/raw/75e331cae5017839b4ce6022a27d70d2e33f1605/figs/model_plot.png)
+**Fig 2**: Sample plots by the model_plot modules
 
 ## References
 
