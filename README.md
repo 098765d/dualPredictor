@@ -8,7 +8,10 @@ The dualPredictor tool combines regression analysis with binary classification t
 
 ### 1.1 How does dualPredictor provide dual prediction output?
 - **Output 1 = Grade prediction**: from the trained regressor (e.g., Lasso)
-- Optimal cut-off: The default cut-off is the ground truth criteria to distinguish at-risk students, and the optimal cut-off is a tunned value that maximizes the metric (e.g., Youden Index) for a given regressor with the corresponding default cut-off value.
+- Optimal cut-off:
+    - The default cut-off is the ground truth criteria to distinguish at-risk students(e.g., default cut-off = 2.5 means a student with a grade <2.5 would be an at-risk student)
+    - The metrics (select from 3: Youden Index, F1-score, F2-score) for binary classification all range from 0 to 1.
+    - The optimal cut-off is a tunned cut-off value that maximizes the metric (e.g., Youden Index) for the trained regressor with the corresponding default cut-off value (e.g., the optimal cut-off is 2.62 for Lasso with Youden Index).
 - **Output 2 = Binary label prediction**:
   - if predicted grade < optimal cut-off: label = 1
   - if predicted grade >= optimal cut-off: label = 0
