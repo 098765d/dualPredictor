@@ -4,25 +4,26 @@ by Dong, Cheng, and Kan
 
 ## 1. Introduction
 
-The dualPredictor tool combines regression analysis with binary classification to forecast student academic outcomes and identify at-risk students. This user guide provides a step-by-step walkthrough on how to install and use the dualPredictor package. The figure below illustrates the mechanism of how dualPredictor generates dual output (regression and classification) by combining a regressor and a metric.
+The dualPredictor tool combines regression analysis with binary classification to forecast student academic outcomes.
+The accompanying figure (Fig 1) illustrates how dualPredictor generates dual output—regression and classification—by combining a regressor and a metric.
 
-### 1.1 How does dualPredictor provide dual prediction output?
+### 1.1 How does dualPredictor provide dual output?
 - **Output 1 = Grade prediction**: from the trained regressor (e.g., Lasso)
 - Optimal cut-off:
     - The default cut-off is the ground truth criteria to distinguish at-risk students(e.g., default cut-off = 2.5 means a student with a grade <2.5 would be an at-risk student)
-    - The metrics (select from 3: Youden Index, F1-score, F2-score) for binary classification all range from 0 to 1.
-    - The optimal cut-off is a tunned cut-off value that maximizes the metric (e.g., Youden Index) for the trained regressor with the corresponding default cut-off value (e.g., the optimal cut-off is 2.62 for Lasso with Youden Index).
+    - The metrics (User chooses one from the Youden Index, F1-score, and F2-score) for binary classification all range from 0 to 1.
+    - The optimal cut-off is a tunned cut-off value that maximizes the selected metric (e.g., user selects Youden Index) for the trained regressor with the corresponding default cut-off value (e.g., the optimal cut-off is 2.62 for Lasso with Youden Index).
 - **Output 2 = Binary label prediction**:
-  - if predicted grade < optimal cut-off: label = 1
-  - if predicted grade >= optimal cut-off: label = 0
+  - if predicted grade < optimal cut-off: label = 1 (at-risk)
+  - if predicted grade >= optimal cut-off: label = 0 (normal)
     
 ![](https://github.com/098765d/dualPredictor/raw/eb30145140a93d355342340d2a7ab256ccbbbf6e/figs/how_dual_works.png)
 **Fig 1**: How does dualPredictor provide dual prediction output?
 
 ### 1.2 How does dualPredictor provide model explanations?
-- Global level model explanations: Model's feature coefficients plot (See Fig 2c)
-- **Local level model explanations**: Model's feature contribution for a specific data point (See Fig 2d)
-    - How to get the feature contribution?
+- Global level Model Explanations: The model's feature coefficients plot (See Fig 2c)
+- **Local level Model Explanations**: The model's feature contribution for a specific data point (See Fig 2d)
+    - How to get the feature contribution for a given data point?
 
       Given a linear model with a total number of M features, the model can be represented as:
       ```math
@@ -35,16 +36,18 @@ The dualPredictor tool combines regression analysis with binary classification t
       \phi_i(f, x) = w_j (x_j - E[x_j])
       ```
 
-      The formula can be seen as a simple approximation of the Shapley value from page 6 of the papaer [Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. Advances in neural information processing systems, 30.](https://dl.acm.org/doi/10.5555/3295222.3295230)
+      The formula can be seen as an approximation of the Shapley value for linear models from page 6 of the paper:
+      [Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. Advances in neural information processing systems, 30.](https://dl.acm.org/doi/10.5555/3295222.3295230)
        
 
 ## 2. Motivation
-The dualPredictor package's motivation is to make complex models as simple as possible for all users, regardless of their coding experience. The model package is designed using the same syntax as the popular scikit-learn models, making it easy for users with experience in scikit-learn to start using the dualPredictor quickly. The model attributes and model methods(model.fit(X, y); model.predict(X)) is intentionally designed to mimic the scikit-learn model object, providing a familiar and user-friendly experience for the user.
+The dualPredictor package aims to simplify complex models for users of all coding levels. It adheres to the syntax of the widely-used scikit-learn library, facilitating a quick start for those familiar with scikit-learn. The model's attributes and methods, such as model.fit(X, y) and model.predict(X), are intentionally designed to mimic the scikit-learn model object, ensuring a familiar and user-friendly experience.
+
 ```python
 # intialize the model, specify the parameters
 model = DualModel(model_type='lasso', metric='f1_score', default_cut_off=2.5)
 ```
-**Table 1**: Model methods and attributes (same style as sklearn model object)
+**Table 1**: Model methods and attributes (Consistent with the scikit-learn Model Object Style)
 | Model Methods | Description |
 |--------------|-------------|
 | `fit(X, y)`  | - **X**: The input training data, pandas data frame. <br> - **y**: The target values (predicted grade). <br> - **Returns**: Fitted DualModel instance |
@@ -73,12 +76,12 @@ pip install git+https://github.com/098765d/dualPredictor.git
 ```
 
 ## 4. User Guide with Examples of Code
-**Step 1. Import the Package:** Import the dualPredictor package in your Python environment.
+**Step 1. Import the Package:** Import the dualPredictor package into your Python environment.
 ```python
 from dualPredictor import DualModel, model_plot
 ```
 **Step 2. Model Initialization:** 
-Create a DualModel instance by specifying the regression model type ('lasso', 'ridge', or 'ols'), the metric for cutoff tuning ('f1_score', 'f2_score', or 'youden_index'), and a default cutoff value.
+Create a DualModel instance by specifying the regressor type ('lasso', 'ridge', or 'ols'), the metric for cutoff tuning ('f1_score', 'f2_score', or 'youden_index'), and a default cutoff value.
 ```python
 model = DualModel(model_type='lasso', metric='youden_index', default_cut_off=2.5)
 ```
@@ -89,7 +92,7 @@ model.fit(X_train, y_train)
 - X: The input training data (pandas DataFrame).
 - y: The target values (predicted grades).
 
-**Step 4. Predictions:** Use the prediction method to generate grade predictions and at-risk classifications.
+**Step 4. Predictions:** Use the predict method to generate grade predictions and at-risk classifications.
   ```python
 # example for demo only, model prediction dual output
 y_train_pred,y_train_label_pred=model.predict(X_train)
@@ -144,7 +147,7 @@ plot_local_shap(X=X_test, model=model, idx='E115CCCD')
 ```
 
 ![Fig2](https://github.com/098765d/dualPredictor/raw/75e331cae5017839b4ce6022a27d70d2e33f1605/figs/model_plot.png)
-**Fig 2**: Sample plots by the model_plot modules
+**Fig 2**: Sample plots generated by the model_plot modules
 
 ## References
 
