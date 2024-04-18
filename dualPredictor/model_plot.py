@@ -152,7 +152,7 @@ def plot_local_shap(model, X, idx, dpi=300, figsize=(5.5, 4.5)):
 
     # Plot SHAP values using seaborn barplot
     fig, ax = plt.subplots(dpi=dpi, figsize=figsize)
-    ax = sns.barplot(data=shap_x, x='shap', y='features', hue='positive_contribution')
+    ax = sns.barplot(data=shap_x, x='shap', y='features', hue='positive_contribution',legend=False)
     plt.title("Feature Contribution for ID = '{}'".format(idx))
     plt.xlabel("Feature Contribution")
     plt.ylabel("Feature")
