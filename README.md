@@ -17,8 +17,8 @@ The dualPredictor tool combines regression analysis with binary classification t
 **Fig 1**: How does dualPredictor provide dual prediction output?
 
 ### 1.2 How does dualPredictor provide model explanations?
-- Global level model explanations: Model's feature coefficients plot
-- **Local level model explanations**: Model's feature contribution for a specific data point
+- Global level model explanations: Model's feature coefficients plot (See Fig 2(c))
+- **Local level model explanations**: Model's feature contribution for a specific data point ((See Fig 2(d)))
     - How to get the feature contribution?
 
       Given a linear model with a total number of M features, the model can be represented as:
