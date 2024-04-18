@@ -106,13 +106,32 @@ model_plot.plot_scatter(y_pred, y_true)
 # Confusion matrix for binary classification
 model_plot.plot_cm(y_label_true, y_label_pred)
 
-# Feature importance plot
+# Model's global explanation: Feature importance plot
 model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.feature_names_in_)
+
+# Model's local explanation: Feature contributions for each data point
+# 'idx' is the index value used to locate a specific row in the dataframe
+plot_local_shap(X=X_test, model=model, idx='E115CCCD')
 ```
+### Theory behind the local explanation (from reference [3])
+
+**Corollary 1 (Linear SHAP)** Given a linear model (total M features)
+```math
+f(x) = \sum_{j=1}^{M} w_j x_j + b
+```
+
+the Shapley value for i-th data point can be approximated from:
+
+```math
+\phi_i(f, x) = w_j (x_j - E[x_j])
+```
+
+
 
 ## References
 
-- Fluss, R., Faraggi, D., & Reiser, B. (2005). Estimation of the Youden Index and its associated cutoff point. _Biometrical Journal: Journal of Mathematical Methods in Biosciences_, 47(4), 458-472.
-- Hoerl, A. E., & Kennard, R. W. (1970). Ridge regression: Biased estimation for nonorthogonal problems. _Technometrics_, 12(1), 55-67.
-- Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., ... & Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. _The Journal of Machine Learning Research_, 12, 2825-2830.
-- Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. _Journal of the Royal Statistical Society Series B: Statistical Methodology_, 58(1), 267-288.
+[1] Fluss, R., Faraggi, D., & Reiser, B. (2005). Estimation of the Youden Index and its associated cutoff point. _Biometrical Journal: Journal of Mathematical Methods in Biosciences_, 47(4), 458-472.
+[2] Hoerl, A. E., & Kennard, R. W. (1970). Ridge regression: Biased estimation for nonorthogonal problems. _Technometrics_, 12(1), 55-67.
+[3] Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. Advances in neural information processing systems, 30.
+[4] Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., ... & Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. _The Journal of Machine Learning Research_, 12, 2825-2830.
+[5] Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. _Journal of the Royal Statistical Society Series B: Statistical Methodology_, 58(1), 267-288.
