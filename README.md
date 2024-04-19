@@ -1,6 +1,6 @@
 # dualPredictor: An Open-Source Tool for Simultaneously Grade Prediction and At-Risk Student Classification
 
-by Dong, Cheng, and Kan
+by D,C and K
 
 PyPI Link: https://pypi.org/project/dualPredictor/
 
@@ -71,16 +71,31 @@ The model object's **methods** and **attributes** (See Table 1 and 2) follow the
 | `optimal_cut_off`  | The optimal cut-off value that maximizes the metric            |
 
 
-## 3. How to Install dualPredictor
+## 3. How to Install?
 
-You can install the dualPredictor package via PyPI or GitHub. Choose one of the following methods:
+### 3.1 Dependencies Installation
 
-### PyPI Installation
+dualPredictor requires the following libraries to be installed:
+
+- NumPy: A fundamental package for scientific computing with Python.
+- scikit-learn: A simple and efficient tools for predictive data analysis.
+- Matplotlib: A comprehensive library for creating static, animated, and interactive visualizations in Python.
+- Seaborn: A Python data visualization library based on matplotlib that provides a high-level interface for drawing attractive statistical graphics.
+You can install all the dependencies at once using the following command:
+
+```bash
+pip install numpy scikit-learn matplotlib seaborn
+```
+
+
+### 3.2 Package Installation 
+
+You can install the dualPredictor package via PyPI or GitHub (Recommended). Choose one of the following methods:
 
 ```bash
 pip install dualPredictor
 ```
-### GitHub Installation (Recommended; Latest Version)
+
 ```bash
 pip install git+https://github.com/098765d/dualPredictor.git
 ```
