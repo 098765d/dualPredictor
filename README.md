@@ -4,7 +4,7 @@ by Dong, Cheng, and Kan
 
 ## 1. Introduction
 
-The dualPredictor tool combines regression analysis with binary classification to forecast student academic outcomes.
+The **dualPredictor** package combines regression analysis with binary classification to forecast student academic outcomes.
 The accompanying figure (Fig 1) illustrates how dualPredictor generates dual output—regression and classification—by combining a regressor and a metric.
 
 ### 1.1 How does dualPredictor provide dual output?
@@ -41,27 +41,33 @@ The accompanying figure (Fig 1) illustrates how dualPredictor generates dual out
        
 
 ## 2. Motivation
-The dualPredictor package aims to simplify complex models for users of all coding levels. It adheres to the syntax of the widely-used scikit-learn library, facilitating a quick start for those familiar with scikit-learn. The model's attributes and methods, such as model.fit(X, y) and model.predict(X), are intentionally designed to mimic the scikit-learn model object, ensuring a familiar and user-friendly experience.
+The dualPredictor package aims to simplify complex models for users of all coding levels. It adheres to the syntax of the scikit-learn library. The core part of the package is the model object called DualModel, which can be imported from the dualPredictor library.
 
 ```python
+from dualPredictor import DualModel
 # intialize the model, specify the parameters
 model = DualModel(model_type='lasso', metric='f1_score', default_cut_off=2.5)
 ```
-**Table 1**: Model methods and attributes (Consistent with the scikit-learn Model Object Style)
+
+The model object's **methods** and **attributes** (See Table 1 and 2) follow the sci-kit-learn style.
+
+**Table 1**: Model methods (scikit-learn linear model object style)
 | Model Methods | Description |
 |--------------|-------------|
 | `fit(X, y)`  | - **X**: The input training data, pandas data frame. <br> - **y**: The target values (predicted grade). <br> - **Returns**: Fitted DualModel instance |
 | `predict(X)` | - **X**: The input training data, pandas' data frame. |
 
+**Table 2**: Model attributes (scikit-learn linear model attributes style)
 | Model Attributes   | Description                                                   |
 |--------------------|---------------------------------------------------------------|
-| `alpha_`           | The value of penalization in Lasso and ridge, for OLS alpha = 0 |
+| `alpha_`           | The value of penalization in Lasso and ridge (for OLS, alpha = 0) |
 | `coef_`            | The coefficients of the model                                  |
 | `Intercept_`       | The intercept value of the model                               |
 | `feature_names_in_`| Names of features during model training                        |
 | `optimal_cut_off`  | The optimal cut-off value that maximizes the metric            |
 
-## 3. Installation
+
+## 3. How to Install dualPredictor
 
 You can install the dualPredictor package via PyPI or GitHub. Choose one of the following methods:
 
@@ -75,7 +81,9 @@ pip install dualPredictor
 pip install git+https://github.com/098765d/dualPredictor.git
 ```
 
-## 4. User Guide with Examples of Code
+## 4. User Guide with Example Code
+After installation, start with:
+
 **Step 1. Import the Package:** Import the dualPredictor package into your Python environment.
 ```python
 from dualPredictor import DualModel, model_plot
@@ -83,16 +91,18 @@ from dualPredictor import DualModel, model_plot
 **Step 2. Model Initialization:** 
 Create a DualModel instance by specifying the regressor type ('lasso', 'ridge', or 'ols'), the metric for cutoff tuning ('f1_score', 'f2_score', or 'youden_index'), and a default cutoff value.
 ```python
+# model_type options: 'lasso', 'ridge', or 'ols'
+# metric options: 'f1_score', 'f2_score', or 'youden_index'
 model = DualModel(model_type='lasso', metric='youden_index', default_cut_off=2.5)
 ```
 **Step 3. Model Fitting:** Fit the model to your dataset using the fit method.
 ```python
 model.fit(X_train, y_train)
 ```
-- X: The input training data (pandas DataFrame).
-- y: The target values (predicted grades).
+- X: The input training data (type: pandas DataFrame).
+- y: The target values (type: pandas data series).
 
-**Step 4. Predictions:** Use the predict method to generate grade predictions and at-risk classifications.
+**Step 4. Predictions:** Use the model's predict method to generate grade predictions and at-risk classifications.
   ```python
 # example for demo only, model prediction dual output
 y_train_pred,y_train_label_pred=model.predict(X_train)
