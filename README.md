@@ -2,6 +2,10 @@
 
 by Dong, Cheng, and Kan
 
+PyPI Link: https://pypi.org/project/dualPredictor/
+
+Github Repo: https://github.com/098765d/dualPredictor/
+
 ## 1. Introduction
 
 The **dualPredictor** package combines regression analysis with binary classification to forecast student academic outcomes.
