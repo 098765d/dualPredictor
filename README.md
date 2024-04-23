@@ -37,8 +37,8 @@ The accompanying figure (Fig 1) illustrates how dualPredictor generates dual out
     
 - **Step 3: Binary label prediction**: (Fig 1, Step 3)
   
-  - y_pred_label = 1 : if y_pred < optimal_cut_off:
-  - y_pred_label = 0: if y_pred >= optimal_cut_off
+  - y_pred_label = 1 (at-risk): if y_pred < optimal_cut_off
+  - y_pred_label = 0 (normal): if y_pred >= optimal_cut_off
 
 
 
