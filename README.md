@@ -63,8 +63,16 @@ The accompanying figure (Fig 1) illustrates how dualPredictor generates dual out
       [Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. Advances in neural information processing systems, 30.](https://dl.acm.org/doi/10.5555/3295222.3295230)
        
 
-## 2. Motivation
+## 2. The Model Methods and Attributes
 The dualPredictor package aims to simplify complex models for users of all coding levels. It adheres to the syntax of the scikit-learn library. The core part of the package is the model object called DualModel, which can be imported from the dualPredictor library.
+
+**Table 0:** Model Parameters
+
+| Parameter | Description | Default Value |
+|---|---|---|
+| `model_type` | Type of regression model to use. Options include:  - `'lasso'` (Lasso regression)  - `'ridge'` (Ridge regression)  - `'ols'` (Ordinary Least Squares regression) | `None` |
+| `metric` | Metric used for optimizing the cut-off value. Options include:  - `'f1_score'` (F1 score)  - `'f2_score'` (F2 score)  - `'youden_index'` (Youden's Index) | `None` |
+| `default_cut_off` | Initial cut-off value used for binary classification. | `None` |
 
 ```python
 from dualPredictor import DualModel
@@ -80,6 +88,10 @@ The model object's **methods** and **attributes** (See Table 1 and 2) follow the
 | `fit(X, y)`  | - **X**: The input training data, pandas data frame. <br> - **y**: The target values (predicted grade). <br> - **Returns**: Fitted DualModel instance |
 | `predict(X)` | - **X**: The input training data, pandas' data frame. |
 
+```python
+model.fit(X_train, y_train)
+model.predict(X_train)
+```
 **Table 2**: Model attributes (scikit-learn linear model attributes style)
 | Model Attributes   | Description                                                   |
 |--------------------|---------------------------------------------------------------|
