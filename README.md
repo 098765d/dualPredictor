@@ -11,18 +11,36 @@ Github Repo: https://github.com/098765d/dualPredictor/
 The **dualPredictor** package combines regression analysis with binary classification to forecast student academic outcomes.
 The accompanying figure (Fig 1) illustrates how dualPredictor generates dual output—regression and classification—by combining a regressor and a metric.
 
-### 1.1 How does dualPredictor provide dual output?
-- **Output 1 = Grade prediction**: from the trained regressor (e.g., Lasso)
-- Optimal cut-off:
-    - The default cut-off is the ground truth criteria to distinguish at-risk students(e.g., default cut-off = 2.5 means a student with a grade <2.5 would be an at-risk student)
-    - The metrics (User chooses one from the Youden Index, F1-score, and F2-score) for binary classification all range from 0 to 1.
-    - The optimal cut-off is a tunned cut-off value that maximizes the selected metric (e.g., user selects Youden Index) for the trained regressor with the corresponding default cut-off value (e.g., the optimal cut-off is 2.62 for Lasso with Youden Index).
-- **Output 2 = Binary label prediction**:
-  - if predicted grade < optimal cut-off: label = 1 (at-risk)
-  - if predicted grade >= optimal cut-off: label = 0 (normal)
-    
 ![](https://github.com/098765d/dualPredictor/raw/eb30145140a93d355342340d2a7ab256ccbbbf6e/figs/how_dual_works.png)
 **Fig 1**: How does dualPredictor provide dual prediction output?
+
+### 1.1 How does dualPredictor provide dual output?
+- **Step 1: Grade prediction from the trained regressor** (Fig 1, Step 1)
+  ```math
+      y\_pred = f(x) = \sum_{j=1}^{M} w_j x_j + b 
+  ```
+  
+- **Step 2: Find the Optimal cut-off:** (Fig 1, Step 2)
+  
+  The goal is to find the optimal cut-off (c) that maximizes the binary classification accuracy.
+  here we offer 3 options of metrics that measure the classification accuracy: Youden index, f1_score, and f2_score
+  firstly, the user specifies the metric type used for the model (e.g., Youden index), and denotes the metric function as g(y_true_label, y_pred_label), where:
+  ```math
+  \text{optimal\_cut\_off} = \arg\max_c g(y_{\text{true\_label}}, y_{\text{pred\_label}}(c))
+  ```
+  This formula searches for the cut-off value that produces the highest value of the metric function g, where:
+  
+  * y_true_label: True label of the data point based on the default cut-off (e.g., 1 for at-risk, 0 for normal)
+  * c: the tunned cut-off that determines the y_pred_label
+  * y_pred_label: Predicted label of the data point based on the tunned cut-off value
+
+    
+- **Step 3: Binary label prediction**: (Fig 1, Step 3)
+  
+  - y_pred_label = 1 : if y_pred < optimal_cut_off:
+  - y_pred_label = 0: if y_pred >= optimal_cut_off
+
+
 
 ### 1.2 How does dualPredictor provide model explanations?
 - Global level Model Explanations: The model's feature coefficients plot (See Fig 2c)
