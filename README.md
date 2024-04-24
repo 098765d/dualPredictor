@@ -17,13 +17,15 @@ The accompanying figure (Fig 1) illustrates how dualPredictor generates dual out
 
 ### 1.1 How does dualPredictor provide dual output?
 - **Step 1: Grade prediction from the trained regressor** (Fig 1, Step 1)
+  fit the linear model f(x) using the training data, and grade prediction can be generated from the fitted model
+  
   ```math
       y\_pred = f(x) = \sum_{j=1}^{M} w_j x_j + b 
   ```
   
 - **Step 2: Find the Optimal cut-off:** (Fig 1, Step 2)
   
-  The goal is to find the optimal cut-off (c) that maximizes the binary classification accuracy.
+  The goal is to find the **optimal cut-off (c)** that maximizes the binary classification accuracy.
   here we offer 3 options of metrics that measure the classification accuracy: Youden index, f1_score, and f2_score.
   Firstly, the user specifies the metric type used for the model (e.g., Youden index) and denotes the metric function as g(y_true_label, y_pred_label), where:
   ```math
