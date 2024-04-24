@@ -25,16 +25,16 @@ The accompanying figure (Fig 1) illustrates how dualPredictor generates dual out
   
 - **Step 2: Find the Optimal cut-off:** (Fig 1, Step 2)
   
-  The goal is to find the **optimal cut-off (c)** that maximizes the binary classification accuracy.
+  The goal is to find the **cut-off (c)** that maximizes the binary classification accuracy.
   here we offer 3 options of metrics that measure the classification accuracy: Youden index, f1_score, and f2_score.
-  Firstly, the user specifies the metric type used for the model (e.g., Youden index) and denotes the metric function as g(y_true_label, y_pred_label), where:
+  Firstly, the user specifies the metric type used for the model (e.g., Youden index) and denotes the **metric function as g(y_true_label, y_pred_label)**, where:
   ```math
   \text{optimal\_cut\_off} = \arg\max_c g(y_{\text{true\_label}}, y_{\text{pred\_label}}(c))
   ```
   This formula searches for the cut-off value that produces the highest value of the metric function g, where:
   
+  * **c**: The tunned cut-off that determines the y_pred_label
   * y_true_label: True label of the data point based on the default cut-off (e.g., 1 for at-risk, 0 for normal)
-  * c: the tunned cut-off that determines the y_pred_label
   * y_pred_label: Predicted label of the data point based on the tunned cut-off value
 
     
