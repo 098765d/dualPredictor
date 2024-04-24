@@ -8,22 +8,22 @@ Github Repo: https://github.com/098765d/dualPredictor/
 
 ## 1. Introduction
 
-The **dualPredictor** package combines regression analysis with binary classification to forecast student academic outcomes with the model explanation provided (global and local model explanation)
+The **dualPredictor** package combines regression analysis with binary classification to forecast student academic outcomes. Meanwhile, dualPredictor offers model explanations at both global and local levels.
 
 The accompanying figure (Fig 1) illustrates how dualPredictor generates dual output—regression and classification—by combining a regressor and a metric.
 
 ![](https://github.com/098765d/dualPredictor/raw/eb30145140a93d355342340d2a7ab256ccbbbf6e/figs/how_dual_works.png)
 **Fig 1**: How does dualPredictor provide dual prediction output?
 
-### 1.1 How does dualPredictor provide dual output?
-- **Step 1: Grade prediction from the trained regressor** (Fig 1, Step 1)
+### 1.1 Dual Prediction Output Mechanism
+- **Step 1: Grade Prediction Using the Trained Regressor** (Fig 1, Step 1)
   fit the linear model f(x) using the training data, and grade prediction can be generated from the fitted model
   
   ```math
       y\_pred = f(x) = \sum_{j=1}^{M} w_j x_j + b 
   ```
   
-- **Step 2: Find the Optimal cut-off:** (Fig 1, Step 2)
+- **Step 2: Determining the Optimal Cut-off** (Fig 1, Step 2)
   
   The goal is to find the **cut-off (c)** that maximizes the binary classification accuracy.
   here we offer 3 options of metrics that measure the classification accuracy: Youden index, f1_score, and f2_score.
@@ -38,15 +38,15 @@ The accompanying figure (Fig 1) illustrates how dualPredictor generates dual out
   * y_pred_label: Predicted label of the data point based on the tunned cut-off value
 
     
-- **Step 3: Binary label prediction**: (Fig 1, Step 3)
+- **Step 3: Binary Label Prediction**: (Fig 1, Step 3)
   
   - y_pred_label = 1 (at-risk): if y_pred < optimal_cut_off
   - y_pred_label = 0 (normal): if y_pred >= optimal_cut_off
 
 
 
-### 1.2 How does dualPredictor provide model explanations?
-- Global level Model Explanations: The model's feature coefficients plot (See Fig 2c)
+### 1.2 Model Explanations
+- **Global level Model Explanations**: The model's feature coefficients plot (See Fig 2c)
 - **Local level Model Explanations**: The model's feature contribution for a specific data point (See Fig 2d)
     - How to get the feature contribution for a given data point?
 
