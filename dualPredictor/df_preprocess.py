@@ -71,9 +71,9 @@ def data_preprocessing(df, target_col, id_col=None, drop_cols=None, scaler=None,
     y = df[target_col]
 
     # display the stats
-    print('Before the pre-processing')
-    display(X.describe())
-    display(y.describe())
+    # print('Before the pre-processing')
+    # display(X.describe())
+    # display(y.describe())
 
     # Detect numerical and categorical columns
     num_cols = X.select_dtypes(include=['int64', 'float64']).columns.tolist()
@@ -97,7 +97,7 @@ def data_preprocessing(df, target_col, id_col=None, drop_cols=None, scaler=None,
         imputer = KNNImputer(n_neighbors=2,keep_empty_features=True)
         X = pd.DataFrame(imputer.fit_transform(X), columns=X.columns)
     
-        display(X.shape)
+        # display(X.shape)
     else:
         X = pd.DataFrame(imputer.fit_transform(X), columns=X.columns)
 
