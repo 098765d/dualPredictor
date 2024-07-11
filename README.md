@@ -1,4 +1,4 @@
-# dualPredictor: An Open-Source Tool for Simultaneously Grade Prediction and At-Risk Student Classification
+# Empowering Educators with An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification
 
 by D
 
@@ -8,7 +8,7 @@ Github Repo: https://github.com/098765d/dualPredictor/
 
 ## 1. Introduction
 
-The **dualPredictor** package combines regression analysis with binary classification to forecast student academic outcomes. Meanwhile, dualPredictor offers model explanations.
+The **dualPredictor** package combines regression analysis with binary classification to forecast student academic outcomes. Meanwhile, dualPredictor offers model explanations. Designed with educators in mind, dualPredictor is readily accessible for installation via GitHub and PyPI, making advanced data analysis techniques available to educators with limited technical backgrounds.
 
 The accompanying figure (Fig 1) illustrates how dualPredictor generates dual output—regression and classification—by combining a regressor and a metric.
 
@@ -44,7 +44,7 @@ The accompanying figure (Fig 1) illustrates how dualPredictor generates dual out
   - y_pred_label = 0 (normal): if y_pred >= optimal_cut_off
 
 
-## 2. The Model Methods and Attributes
+## 2. The Model Object (Parameters & Methods)
 The dualPredictor package aims to simplify complex models for users of all coding levels. It adheres to the syntax of the scikit-learn library. The core part of the package is the model object called DualModel, which can be imported from the dualPredictor library.
 
 **Table 0:** Model Parameters
@@ -55,25 +55,13 @@ The dualPredictor package aims to simplify complex models for users of all codin
 | `metric` | Metric used for optimizing the cut-off value. Options include:  - `'f1_score'` (F1 score)  - `'f2_score'` (F2 score)  - `'youden_index'` (Youden's Index) | `None` |
 | `default_cut_off` | Initial cut-off value used for binary classification. | `None` |
 
-```python
-from dualPredictor import DualModel
-# intialize the model, specify the parameters
-model = DualModel(model_type='lasso', metric='f1_score', default_cut_off=2.5)
-```
-
-The model object's **methods** and **attributes** (See Table 1 and 2) follow the sci-kit-learn style.
-
-**Table 1**: Model methods (scikit-learn linear model object style)
+**Table 1**: Model methods (scikit-learn style)
 | Model Methods | Description |
 |--------------|-------------|
 | `fit(X, y)`  | - **X**: The input training data, pandas data frame. <br> - **y**: The target values (predicted grade). <br> - **Returns**: Fitted DualModel instance |
 | `predict(X)` | - **X**: The input training data, pandas' data frame. |
 
-```python
-model.fit(X_train, y_train)
-model.predict(X_train)
-```
-**Table 2**: Model attributes (scikit-learn linear model attributes style)
+**Table 2**: Model attributes (scikit-learn style)
 | Model Attributes   | Description                                                   |
 |--------------------|---------------------------------------------------------------|
 | `alpha_`           | The value of penalization in Lasso and ridge (for OLS, alpha = 0) |
@@ -82,6 +70,24 @@ model.predict(X_train)
 | `feature_names_in_`| Names of features during model training                        |
 | `optimal_cut_off`  | The optimal cut-off value that maximizes the metric            |
 
+**Example Usage - fit the model with just one line of code**
+```python
+from dualPredictor import DualModel
+
+# Initialize the model and specify the parameters
+model = DualModel(model_type='lasso', metric='f1_score', default_cut_off=2.5)
+
+# Using model methods for training and predicting
+model.fit(X_train, y_train)
+grade_predictions, class_predictions = model.predict(X_train)
+
+# Accessing model attributes
+print("Alpha (regularization strength):", model.alpha_)
+print("Model coefficients:", model.coef_)
+print("Model intercept:", model.intercept_)
+print("Feature names:", model.feature_names_in_)
+print("Optimal cut-off value:", model.optimal_cut_off)
+```
 
 ## 3. User Guide
 
@@ -170,18 +176,20 @@ array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 - y_train_pred: Predicted grades (regression result).
 - y_train_label_pred: Predicted at-risk status (binary label).
 
-**Step 5.Visualization:** Visualize the model's performance using the model_plot module (Optional)
+**Step 5.Visualization:** Visualize the model's performance with just one line of code
 ```python
-# Scatter plot for regression analysis - a
+# Scatter plot for regression analysis 
 model_plot.plot_scatter(y_pred, y_true)
 
-# Confusion matrix for binary classification - b
+# Confusion matrix for binary classification 
 model_plot.plot_cm(y_label_true, y_label_pred)
 
-# Model's global explanation: Feature importance plot - c
+# Model's global explanation: Feature importance plot
 model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.feature_names_in_)
 ```
 
+![](https://github.com/098765d/dualPredictor/raw/7a0869600faf1b8a8299fb3a0f8f86b5c1b1e2ab/figs/vis_output.png)
+**Fig 2**: Visualization Module Sample Outputs 
 
 ## References
 
