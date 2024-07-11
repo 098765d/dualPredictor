@@ -1,6 +1,6 @@
 # dualPredictor: An Open-Source Tool for Simultaneously Grade Prediction and At-Risk Student Classification
 
-by D,C and K
+by D
 
 PyPI Link: https://pypi.org/project/dualPredictor/
 
