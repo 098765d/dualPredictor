@@ -5,6 +5,52 @@ from sklearn.metrics import r2_score, mean_squared_error, confusion_matrix, Conf
 import numpy as np
 import pandas as pd
 
+'''
+This module, dualPredictor/model_plot.py, includes several functions designed for visualizing different aspects of model performance and data characteristics. 
+
+1. plot_scatter(y_pred, y_true):
+   - Plots a scatter diagram comparing predicted values against true values.
+   - Parameters:
+     y_pred (array-like): Predicted values.
+     y_true (array-like): True values with NaN handled via mean imputation.
+   - Calculates and displays R-squared and Mean Squared Error.
+
+2. plot_cm(y_label_true, y_label_pred):
+   - Generates and visualizes a confusion matrix from true and predicted labels.
+   - Parameters:
+     y_label_true (array-like): True classification labels.
+     y_label_pred (array-like): Predicted classification labels.
+   - Calculates and displays classification metrics including total data points, miss detections, false alarms, and classification rate.
+
+3. plot_feature_coefficients(coef, feature_names):
+   - Visualizes the coefficients of features from a model as a bar plot.
+   - Parameters:
+     coef (array-like): Coefficients of the model.
+     feature_names (list of str): Corresponding names of the features.
+   - Focuses on non-zero coefficients, sorted by their absolute values.
+
+4. plot_cutoff_tuning(cutoffs, metrics, xlabel="Cutoff", ylabel="Metric"):
+   - Plots various metrics against different cutoff points, useful for threshold tuning in models.
+   - Parameters:
+     cutoffs (array-like): Points at which thresholds are set.
+     metrics (array-like): Metric values at each threshold.
+     xlabel (str, optional): Label for the x-axis. Defaults to "Cutoff".
+     ylabel (str, optional): Label for the y-axis. Defaults to "Metric".
+   - Customizable plot labels for clear understanding and presentation.
+
+5. plot_local_shap(model, X, idx, dpi=300, figsize=(5.5, 4.5)):
+   - Computes and plots SHAP values for individual predictions using model coefficients.
+   - Parameters:
+     model (Model object): The trained model with coefficients available.
+     X (pandas.DataFrame): Dataset used in the model.
+     idx (int or str): Index of the specific data point in X.
+     dpi (int, optional): Resolution of the figure. Defaults to 300.
+     figsize (tuple, optional): Dimensions of the figure. Defaults to (5.5, 4.5).
+   - Displays the contribution of each feature to the prediction in a bar chart format, indicating positive or negative impacts.
+
+Each function is designed to be self-contained, with parameters tailored to specific visualization needs, and outputs a matplotlib figure object that can be further customized or directly displayed.
+'''
+
 
 def plot_scatter(y_pred, y_true):
     # Create a copy of y_pred and impute NaN values with the mean
@@ -49,7 +95,6 @@ def plot_scatter(y_pred, y_true):
     return fig
 
 
-
 def plot_cm(y_label_true, y_label_pred):
 
     # Calculate the confusion matrix
@@ -82,8 +127,8 @@ def plot_cm(y_label_true, y_label_pred):
 
 def plot_feature_coefficients(coef, feature_names):
 
-    # Round the coefficients to two decimal places
-    rounded_coef = np.round(coef, decimals=2)
+    # Round the coefficients to 3 decimal places
+    rounded_coef = np.round(coef, decimals=3)
 
     # Get non-zero feature coefficients and corresponding names
     nonzero_coef = rounded_coef[rounded_coef != 0]
@@ -132,8 +177,6 @@ def plot_cutoff_tuning(cutoffs,metrics, xlabel="Cutoff", ylabel="Metric"):
     plt.legend()
     plt.show()
 
-
-
 def plot_local_shap(model, X, idx, dpi=300, figsize=(5.5, 4.5)):
 
     # Calculate SHAP values for the specified row of X_train
@@ -164,4 +207,4 @@ def plot_local_shap(model, X, idx, dpi=300, figsize=(5.5, 4.5)):
     plt.xlim(left=2.7 * shap_x['shap'].min(), right=1.2*shap_x['shap'].max())
     return fig
     
-# local_shap=plot_local_shap(model, X_train, idx='8112C5A6')
+# local_shap=plot_local_shap(model, X_train, idx='tr1')
