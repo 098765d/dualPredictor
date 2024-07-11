@@ -8,7 +8,7 @@ Github Repo: https://github.com/098765d/dualPredictor/
 
 ## 1. Introduction
 
-The **dualPredictor** package combines regression analysis with binary classification to forecast student academic outcomes. Meanwhile, dualPredictor offers model explanations at both global and local levels.
+The **dualPredictor** package combines regression analysis with binary classification to forecast student academic outcomes. Meanwhile, dualPredictor offers model explanations.
 
 The accompanying figure (Fig 1) illustrates how dualPredictor generates dual output—regression and classification—by combining a regressor and a metric.
 
@@ -43,27 +43,6 @@ The accompanying figure (Fig 1) illustrates how dualPredictor generates dual out
   - y_pred_label = 1 (at-risk): if y_pred < optimal_cut_off
   - y_pred_label = 0 (normal): if y_pred >= optimal_cut_off
 
-
-
-### 1.2 Model Explanations
-- **Global level Model Explanations**: The model's feature coefficients plot (See Fig 2c)
-- **Local level Model Explanations**: The model's feature contribution for a specific data point (See Fig 2d)
-    - How to get the feature contribution for a given data point?
-
-      Given a linear model with a total number of M features, the model can be represented as:
-      ```math
-      f(x) = \sum_{j=1}^{M} w_j x_j + b 
-      ```
-      
-      The j-th feature contribution for the i-th data point can be approximated from the formula:
-      
-      ```math
-      \phi_i(f, x) = w_j (x_j - E[x_j])
-      ```
-
-      The formula can be seen as an approximation of the Shapley value for linear models from page 6 of the paper:
-      [Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. Advances in neural information processing systems, 30.](https://dl.acm.org/doi/10.5555/3295222.3295230)
-       
 
 ## 2. The Model Methods and Attributes
 The dualPredictor package aims to simplify complex models for users of all coding levels. It adheres to the syntax of the scikit-learn library. The core part of the package is the model object called DualModel, which can be imported from the dualPredictor library.
@@ -179,7 +158,7 @@ array([3.11893389, 3.06013236, 3.05418893, 3.09776197, 3.14898782,
        3.00081754, 3.04180887, 3.32979373, 3.12686642, 2.90359338,
        2.95509896, 2.96429385, 3.44471154, 3.20251564, 3.08765075,
        2.5607482 , 3.23986551, 3.19644891, 3.16032825, 2.68092384,
-       3.04907167, 2.8159268 , 3.05030088, 3.178372  ])
+       3.04907167, 2.8159268 , 3.05030088, 3.178372])
 
 # example of 2nd model output = predicted at-risk status (binary label)
 y_train_label_pred
