@@ -15,7 +15,7 @@ The accompanying figure (Fig 1) illustrates how dualPredictor generates dual out
 ![](https://github.com/098765d/dualPredictor/raw/eb30145140a93d355342340d2a7ab256ccbbbf6e/figs/how_dual_works.png)
 **Fig 1**: How does dualPredictor provide dual prediction output?
 
-### 1.1 Dual Prediction Output Mechanism
+### How does the model generate both regression and binary classification results simultaneously?
 - **Step 1: Grade Prediction Using the Trained Regressor** (Fig 1, Step 1)
   fit the linear model f(x) using the training data, and grade prediction can be generated from the fitted model
   
