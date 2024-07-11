@@ -43,41 +43,35 @@ The accompanying figure (Fig 1) illustrates how dualPredictor generates dual out
   - y_pred_label = 1 (at-risk): if y_pred < optimal_cut_off
   - y_pred_label = 0 (normal): if y_pred >= optimal_cut_off
 
+## 2. The Model Object (Parameters, Methods, and Attributes)
 
-## 2. The Model Object (Parameters & Methods)
-The dualPredictor package aims to simplify complex models for users of all coding levels. It adheres to the syntax of the scikit-learn library. The core part of the package is the model object called DualModel, which can be imported from the dualPredictor library.
+The dualPredictor package aims to simplify complex models for users of all coding levels. It adheres to the syntax of the scikit-learn library and simplifies model training by allowing you to fit the model with just one line of code. The core part of the package is the model object called DualModel, which can be imported from the dualPredictor library.
 
-**Table 0:** Model Parameters
+**Table 1:** Model Parameters, Methods, and Attributes
 
-| Parameter | Description | Default Value |
-|---|---|---|
-| `model_type` | Type of regression model to use. Options include:  - `'lasso'` (Lasso regression)  - `'ridge'` (Ridge regression)  - `'ols'` (Ordinary Least Squares regression) | `None` |
-| `metric` | Metric used for optimizing the cut-off value. Options include:  - `'f1_score'` (F1 score)  - `'f2_score'` (F2 score)  - `'youden_index'` (Youden's Index) | `None` |
-| `default_cut_off` | Initial cut-off value used for binary classification. | `None` |
+| Category        | Name                | Description                                                                                      | 
+|-----------------|---------------------|--------------------------------------------------------------------------------------------------|
+| **Parameters**  | `model_type`        | Type of regression model to use. For example:  - `'lasso'` (Lasso regression)|
+|                 | `metric`            | Metric is used to optimize the cut-off value. For example:  - `'youden_index'` (Youden's Index) |
+|                 | `default_cut_off`   | Initial cut-off value used for binary classification. For example: 2.50              | 
+| **Methods**     | `fit(X, y)`         | - **X**: The input training data, pandas data frame. <br> - **y**: The target values (predicted grade). <br> - **Returns**: Fitted DualModel instance | 
+|                 | `predict(X)`        | - **X**: The input training data, pandas data frame.                                              |  
+| **Attributes**  | `alpha_`            | The value of penalization in Lasso model                                 |               
+|                 | `coef_`             | The coefficients of the model                                                                    |    
+|                 | `intercept_`        | The intercept value of the model                                                                 |               
+|                 | `feature_names_in_` | Names of features during model training                                                          |               
+|                 | `optimal_cut_off`   | The optimal cut-off value that maximizes the metric                                              |               
 
-**Table 1**: Model methods (scikit-learn style)
-| Model Methods | Description |
-|--------------|-------------|
-| `fit(X, y)`  | - **X**: The input training data, pandas data frame. <br> - **y**: The target values (predicted grade). <br> - **Returns**: Fitted DualModel instance |
-| `predict(X)` | - **X**: The input training data, pandas' data frame. |
+### Example Usage
 
-**Table 2**: Model attributes (scikit-learn style)
-| Model Attributes   | Description                                                   |
-|--------------------|---------------------------------------------------------------|
-| `alpha_`           | The value of penalization in Lasso and ridge (for OLS, alpha = 0) |
-| `coef_`            | The coefficients of the model                                  |
-| `Intercept_`       | The intercept value of the model                               |
-| `feature_names_in_`| Names of features during model training                        |
-| `optimal_cut_off`  | The optimal cut-off value that maximizes the metric            |
-
-**Example Usage - fit the model with just one line of code**
 ```python
 from dualPredictor import DualModel
 
 # Initialize the model and specify the parameters
-model = DualModel(model_type='lasso', metric='f1_score', default_cut_off=2.5)
+model = DualModel(model_type='lasso', metric='youden_index', default_cut_off=2.5)
 
 # Using model methods for training and predicting
+# Simplify model training by calling fit method with one line of code
 model.fit(X_train, y_train)
 grade_predictions, class_predictions = model.predict(X_train)
 
@@ -125,10 +119,8 @@ After installation, start with:
 from dualPredictor import DualModel, model_plot
 ```
 **Step 2. Model Initialization:** 
-Create a DualModel instance by specifying the regressor type ('lasso', 'ridge', or 'ols'), the metric for cutoff tuning ('f1_score', 'f2_score', or 'youden_index'), and a default cutoff value.
+Create a DualModel instance
 ```python
-# model_type options: 'lasso', 'ridge', or 'ols'
-# metric options: 'f1_score', 'f2_score', or 'youden_index'
 model = DualModel(model_type='lasso', metric='youden_index', default_cut_off=2.5)
 ```
 **Step 3. Model Fitting:** Fit the model to your dataset using the fit method.
