@@ -4,10 +4,33 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.impute import KNNImputer
 
-"""
-    Ensures that the training and testing DataFrames have the same columns and order.
-    If not, it modifies both DataFrames to include only the common columns.
-"""
+'''
+This module, dualPredictor/df_preprocess.py, is designed to preprocess data frames prior to machine learning modeling.
+It includes functions to ensure consistency between training and testing datasets and to perform data cleaning, encoding, scaling, and imputing missing values. 
+
+1. check_df_forms(df_train, df_test):
+   - Ensures that the training and testing DataFrames have the same columns in the same order. If not, it aligns both DataFrames to contain only the columns present in both.
+   - Parameters:
+     df_train (pandas.DataFrame): The training dataset.
+     df_test (pandas.DataFrame): The testing dataset.
+   - Returns:
+     tuple: A tuple containing the processed training and testing DataFrames.
+
+2. data_preprocessing(df, target_col, id_col=None, drop_cols=None, scaler=None, imputer=None):
+   - Processes the DataFrame by optionally dropping specified columns, encoding categorical data, scaling numerical features, and imputing missing values. Provides a comprehensive preparation of the data for modeling.
+   - Parameters:
+     df (pandas.DataFrame): The DataFrame to preprocess.
+     target_col (str): The name of the target column in the DataFrame.
+     id_col (str, optional): The name of the column to set as index. Defaults to None.
+     drop_cols (list of str, optional): List of column names to drop from the DataFrame. Defaults to None.
+     scaler (object, optional): An instance of a scaler from sklearn (e.g., StandardScaler). If None, a new StandardScaler instance will be created and fitted. Defaults to None.
+     imputer (object, optional): An instance of an imputer from sklearn (e.g., KNNImputer). If None, a new KNNImputer instance will be created and fitted. Defaults to None.
+   - Returns:
+     tuple: A tuple containing the preprocessed features (X), target (y), scaler, and imputer used.
+
+These functions are vital for maintaining the integrity and quality of the data used in machine learning models, ensuring that the data is clean, consistent, and well-prepared for any analytical tasks.
+'''
+
 
 def check_df_forms(df_train, df_test):
     # Check if the DataFrames have the same columns in the same order
@@ -30,11 +53,6 @@ def check_df_forms(df_train, df_test):
 
 # Example usage:
 # df_train, df_test=check_df_forms(df_train, df_test)
-
-"""
-    Processes the DataFrame by dropping specified columns, encoding categorical data,
-    scaling numerical features, and imputing missing values.
-"""
 
 def data_preprocessing(df, target_col, id_col=None, drop_cols=None, scaler=None, imputer=None):
     # Drop specified columns
