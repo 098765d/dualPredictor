@@ -8,7 +8,7 @@ Github Repo: https://github.com/098765d/dualPredictor/
 
 ## 1. Introduction
 
-The **dualPredictor** package combines regression analysis with binary classification to forecast student academic outcomes. Meanwhile, dualPredictor offers model explanations. Designed with educators in mind, dualPredictor is readily accessible for installation via GitHub and PyPI, making advanced data analysis techniques available to educators with limited technical backgrounds.
+The **dualPredictor** package combines regression analysis with binary classification to forecast student academic outcomes. Designed to simplify the implementation of advanced algorithms, dualPredictor allows users to train models, make predictions, and visualize results with just 1 line of code. This accessibility benefits educators with varying levels of IT expertise, making sophisticated algorithms readily available. The package is easy to install via GitHub and PyPI, ensuring that educators can integrate advanced analytics into their workflows seamlessly.
 
 The accompanying figure (Fig 1) illustrates how dualPredictor generates dual output—regression and classification—by combining a regressor and a metric.
 
