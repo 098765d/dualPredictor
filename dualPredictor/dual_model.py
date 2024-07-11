@@ -5,6 +5,62 @@ from sklearn.linear_model import LassoCV, RidgeCV, LinearRegression
 from sklearn.metrics import confusion_matrix, balanced_accuracy_score,fbeta_score
 import numpy as np
 
+'''
+This module, dualPredictor/dual_model.py, defines the DualModel class, which integrates regression and classification capabilities into a single model framework. 
+The class is built on scikit-learn's BaseEstimator, allowing it to be used as a typical sklearn model with additional functionality.
+
+Class DualModel:
+    - A flexible model that can use Lasso, Ridge, or Ordinary Least Squares (OLS) regression based on user selection, and automatically tunes a decision threshold for binary classification.
+    
+    Parameters:
+        model_type (str): Specifies the type of regression model ('lasso', 'ridge', 'ols').
+        metric (str): The metric used to optimize the classification cutoff ('youden_index', 'f1_score', 'f2_score').
+        default_cut_off (float): The initial threshold for converting regression outputs to binary labels.
+
+    Methods:
+        __init__(self, model_type='lasso', metric='youden_index', default_cut_off=0.5):
+            - Initializes the model with the specified regression type and metrics.
+        
+        fit(self, X, y):
+            - Fits the model to the data and tunes the cutoff for binary classification based on the provided metric.
+            - Parameters:
+                X (array-like, shape (n_samples, n_features)): Training data.
+                y (array-like, shape (n_samples,)): Target values.
+            - Returns:
+                self: Fitted estimator.
+
+        predict(self, X):
+            - Predicts using the fitted model. Returns both continuous and binary predictions.
+            - Parameters:
+                X (array-like, shape (n_samples, n_features)): Data to predict.
+            - Returns:
+                tuple: Tuple containing continuous predictions and binary predictions.
+
+    Attributes:
+        metrics_:
+            - Returns the metric values evaluated at each cutoff during tuning.
+        
+        cutoffs_:
+            - Returns the cutoff values evaluated during tuning.
+        
+        alpha_:
+            - Returns the regularization strength parameter (alpha) for Lasso and Ridge.
+        
+        coef_:
+            - Returns the coefficients of the regression model.
+        
+        intercept_:
+            - Returns the intercept of the regression model.
+        
+        feature_names_in_:
+            - Returns the input feature names.
+
+Usage:
+The DualModel is suitable for scenarios where one needs the flexibility to perform both regression and classification tasks within the same model framework, 
+leveraging the strengths of regularization and threshold optimization.
+'''
+
+
 class DualModel(BaseEstimator, RegressorMixin):
     def __init__(self, model_type='lasso', metric='youden_index',default_cut_off=0.5):
         self.model_type = model_type
