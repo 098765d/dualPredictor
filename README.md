@@ -82,8 +82,7 @@ print("Feature names:", model.feature_names_in_)
 print("Optimal cut-off value:", model.optimal_cut_off)
 ```
 
-## 3. User Guide
-
+## 3. Quick Start
 ### 3.1 Dependencies Installation
 
 dualPredictor requires the following libraries to be installed:
