@@ -1,10 +1,36 @@
 # Empowering Educators with An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification
 
+The package combines regression analysis with binary classification to forecast student academic outcomes, developed by D
 
+## Dependencies
+
+dualPredictor requires:
+
+- Python (>= 3.9)
+- NumPy
+- scikit-learn
+- Matplotlib
+- Seaborn
+You can install all the dependencies use command: 
+```bash
+pip install numpy scikit-learn matplotlib seaborn
+```
+
+## Package Installation
+
+You can install the dualPredictor package via PyPI or GitHub (Recommended). Choose one of the following methods:
+
+```bash
+pip install dualPredictor
+```
+
+```bash
+pip install git+https://github.com/098765d/dualPredictor.git
+```
 
 ## 1. Introduction
 
-The package combines regression analysis with binary classification to forecast student academic outcomes. Designed to simplify the implementation of advanced algorithms, this package allows users to train models, make predictions, and visualize results with just 1 line of code with their dataset. This accessibility benefits educators with varying levels of IT expertise, making sophisticated algorithms readily available. The package is easy to install via GitHub and PyPI:
+Designed to simplify the implementation of advanced algorithms, this package allows users to train models, make predictions, and visualize results with just 1 line of code with their dataset. This accessibility benefits educators with varying levels of IT expertise, making sophisticated algorithms readily available. The package is easy to install via GitHub and PyPI:
 
 PyPI Link: https://pypi.org/project/dualPredictor/
 
@@ -82,34 +108,6 @@ print("Optimal cut-off value:", model.optimal_cut_off)
 ```
 
 ## 3. Quick Start
-### 3.1 Dependencies Installation
-
-dualPredictor requires the following libraries to be installed:
-
-- NumPy: A fundamental package for scientific computing with Python.
-- scikit-learn: A simple and efficient tools for predictive data analysis.
-- Matplotlib: A comprehensive library for creating static, animated, and interactive visualizations in Python.
-- Seaborn: A Python data visualization library based on matplotlib that provides a high-level interface for drawing attractive statistical graphics.
-You can install all the dependencies at once using the following command:
-
-```bash
-pip install numpy scikit-learn matplotlib seaborn
-```
-
-### 3.2 Package Installation 
-
-You can install the dualPredictor package via PyPI or GitHub (Recommended). Choose one of the following methods:
-
-```bash
-pip install dualPredictor
-```
-
-```bash
-pip install git+https://github.com/098765d/dualPredictor.git
-```
-
-### 3.3 Example Code
-After installation, start with:
 
 **Step 1. Import the Package:** Import the dualPredictor package into your Python environment.
 ```python
