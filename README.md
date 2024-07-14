@@ -11,7 +11,8 @@ dualPredictor requires:
 - scikit-learn
 - Matplotlib
 - Seaborn
-You can install all the dependencies use command: 
+
+You can install all the dependencies using the command: 
 ```bash
 pip install numpy scikit-learn matplotlib seaborn
 ```
