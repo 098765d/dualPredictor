@@ -4,7 +4,7 @@ The package combines regression analysis with binary classification to forecast 
 
 ## Dependencies
 
-dualPredictor requires:
+This package requires:
 
 - Python (>= 3.9)
 - NumPy
@@ -12,14 +12,14 @@ dualPredictor requires:
 - Matplotlib
 - Seaborn
 
-You can install all the dependencies using the command: 
+Install all the dependencies using the command: 
 ```bash
 pip install numpy scikit-learn matplotlib seaborn
 ```
 
 ## Package Installation
 
-You can install the dualPredictor package via PyPI or GitHub (Recommended). Choose one of the following methods:
+Install the dualPredictor package via PyPI or GitHub (Recommended). Choose one of the following methods:
 
 ```bash
 pip install dualPredictor
