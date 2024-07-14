@@ -1,6 +1,6 @@
 # Empowering Educators with An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification
 
-The package combines regression analysis with binary classification to forecast student academic outcomes, developed by D
+The package combines regression analysis with binary classification to forecast student academic outcomes
 
 ## Dependencies
 
