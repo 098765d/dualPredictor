@@ -89,7 +89,7 @@ The dualPredictor package aims to simplify complex models for users of all codin
 |                 | `feature_names_in_` | Names of features during model training                                                          |               
 |                 | `optimal_cut_off`   | The optimal cut-off value that maximizes the metric                                              |               
 
-### Example Usage
+### Example of the Model Object
 
 ```python
 from dualPredictor import DualModel
