@@ -1,8 +1,12 @@
+<p align="left">
+  <img src="https://github.com/098765d/dualPredictor/raw/970fb03eb92b39bc6bc2ce6c54da712680068436/figs/logo.png" alt="Logo" width="120" height="120">
+</p>
+
 # Empowering Educators with An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification
 
-The package combines regression analysis with binary classification to forecast student academic outcomes
+This Python package, based on the paper **"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"** combines regression analysis with binary classification to forecast student academic outcomes
 
-## Dependencies
+## 0. Package Installation
 
 This package requires:
 
@@ -12,14 +16,11 @@ This package requires:
 - Matplotlib
 - Seaborn
 
-Install all the dependencies using the command: 
+**1st Step:** Install all the dependencies using the command: 
 ```bash
 pip install numpy scikit-learn matplotlib seaborn
 ```
-
-## Package Installation
-
-Install the dualPredictor package via PyPI or GitHub (Recommended). Choose one of the following methods:
+**2nd Step:** Install the dualPredictor package via PyPI or GitHub (Recommended). Choose one of the following methods:
 
 ```bash
 pip install dualPredictor
@@ -31,7 +32,8 @@ pip install git+https://github.com/098765d/dualPredictor.git
 
 ## 1. Introduction
 
-Designed to simplify the implementation of advanced algorithms, this package allows users to train models, make predictions, and visualize results with just 1 line of code with their dataset. This accessibility benefits educators with varying levels of IT expertise, making sophisticated algorithms readily available. The package is easy to install via GitHub and PyPI:
+Designed to simplify the implementation of advanced algorithms, this package allows users to train models, make predictions, and visualize results with **just 1 line of code** with **their own dataset**. This accessibility benefits educators with varying levels of IT expertise, making sophisticated algorithms readily available. 
+The package is easy to install via GitHub and PyPI:
 
 PyPI Link: https://pypi.org/project/dualPredictor/
 
@@ -80,7 +82,7 @@ The dualPredictor package aims to simplify complex models for users of all codin
 |                 | `metric`            | Metric is used to optimize the cut-off value. For example:  - `'youden_index'` (Youden's Index) |
 |                 | `default_cut_off`   | Initial cut-off value used for binary classification. For example: 2.50              | 
 | **Methods**     | `fit(X, y)`         | - **X**: The input training data, pandas data frame. <br> - **y**: The target values (predicted grade). <br> - **Returns**: Fitted DualModel instance | 
-|                 | `predict(X)`        | - **X**: The input training data, pandas data frame.                                              |  
+|                 | `predict(X)`        | - **X**: The input data for predeiction, pandas data frame.                                              |  
 | **Attributes**  | `alpha_`            | The value of penalization in Lasso model                                 |               
 |                 | `coef_`             | The coefficients of the model                                                                    |    
 |                 | `intercept_`        | The intercept value of the model                                                                 |               
@@ -107,8 +109,18 @@ print("Model intercept:", model.intercept_)
 print("Feature names:", model.feature_names_in_)
 print("Optimal cut-off value:", model.optimal_cut_off)
 ```
+Example of output (demo only)
+```
+Alpha (regularization strength): 0.12
+Model coefficients: [0.2, -0.1, 0.3, 0.4]
+Model intercept: 2.5
+Feature names: ['feature1', 'feature2', 'feature3', 'feature4']
+Optimal cut-off value: 2.56
+```
 
 ## 3. Quick Start
+
+**Step 0. Prepare your Dataset:** Prepare the X_train, X_test, y_train, y_test
 
 **Step 1. Import the Package:** Import the dualPredictor package into your Python environment.
 ```python
@@ -119,50 +131,26 @@ Create a DualModel instance
 ```python
 model = DualModel(model_type='lasso', metric='youden_index', default_cut_off=2.5)
 ```
-**Step 3. Model Fitting:** Fit the model to your dataset using the fit method.
+
+**Step 3. Model Training:** Fit the model using **X_train & y_train**
 ```python
 model.fit(X_train, y_train)
 ```
-- X: The input training data (type: pandas DataFrame).
-- y: The target values (type: pandas data series).
 
-**Step 4. Predictions:** Use the model's predict method to generate grade predictions and at-risk classifications.
+**Step 4. Model Predictions:** Generate predictions on **X_test**
   ```python
 # example for demo only, model prediction dual output
-y_train_pred,y_train_label_pred=model.predict(X_train)
+y_test_pred,y_test_label_pred = model.predict(X_test)
 
-# example of 1st model output = predicted scores (regression result)
-y_train_pred
+# Example of model's 1st output = predicted scores (regression result)
+y_test_pred
 array([3.11893389, 3.06013236, 3.05418893, 3.09776197, 3.14898782,
-       2.37679417, 2.99367804, 2.77202421, 2.9603209 , 3.01052573,
-       2.99974477, 3.11286716, 3.14708887, 2.78737598, 2.88134869,
-       3.07517748, 3.17370297, 3.26615469, 3.2328493 , 2.98423656,
-       3.02108518, 2.87746064, 3.03491596, 2.89875586, 3.11079315,
-       3.23177653, 3.34291929, 2.57402463, 3.27019917, 3.20073168,
-       2.94514418, 3.25307175, 3.19145494, 3.15909904, 3.01481681,
-       3.07551728, 2.70973767, 3.07226583, 3.04692613, 2.8883649 ,
-       2.63833457, 3.03978663, 3.20974038, 3.13091091, 3.42223703,
-       3.07012029, 3.01981077, 3.22368756, 2.69376153, 2.93594929,
-       2.91493381, 3.22273808, 2.59310411, 3.00767959, 3.21869359,
-       2.86065334, 3.16865551, 3.11258742, 2.87948289, 2.64564212,
-       2.88646595, 3.48716006, 3.14482003, 3.15513751, 3.05299286,
-       3.20858237, 2.63172024, 2.42824269, 2.88352738, 3.0479989 ,
-       2.82405611, 3.16516577, 2.94324523, 3.4453079 , 2.48497569,
-       3.00081754, 3.04180887, 3.32979373, 3.12686642, 2.90359338,
-       2.95509896, 2.96429385, 3.44471154, 3.20251564, 3.08765075,
-       2.5607482 , 3.23986551, 3.19644891, 3.16032825, 2.68092384,
-       3.04907167, 2.8159268 , 3.05030088, 3.178372])
+       2.37679417, 2.99367804, 2.77202421, 2.9603209 , 3.01052573])
 
-# example of 2nd model output = predicted at-risk status (binary label)
-y_train_label_pred
-array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-       0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
-       0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
-       1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,
-       0, 1, 0, 0, 0, 0])
+# Example of model's 2nd output = predicted at-risk status (binary label)
+y_test_label_pred
+array([0, 0, 0, 0, 0, 1, 0, 0, 1, 0])
 ```
-- y_train_pred: Predicted grades (regression result).
-- y_train_label_pred: Predicted at-risk status (binary label).
 
 **Step 5.Visualization:** Visualize the model's performance with just one line of code
 ```python
