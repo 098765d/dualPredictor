@@ -178,6 +178,12 @@ model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.featu
 ![](https://github.com/098765d/dualPredictor/raw/7a0869600faf1b8a8299fb3a0f8f86b5c1b1e2ab/figs/vis_output.png)
 **Fig 2**: Visualization Module Sample Outputs 
 
+**Another Demo**
+
+Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data from Mugla Sitki Kocman University ('19 OOP Class Student Grades).
+[![Demo](https://colab.research.google.com/assets/colab-badge.svg)](https://www.kaggle.com/code/ddatad/dualpredictor-demo)
+
+
 ## References
 
 [1] Fluss, R., Faraggi, D., & Reiser, B. (2005). Estimation of the Youden Index and its associated cutoff point. _Biometrical Journal: Journal of Mathematical Methods in Biosciences_, 47(4), 458-472.
