@@ -123,6 +123,8 @@ Optimal cut-off value: 2.56
 
 ## 3. Quick Start
 
+Note: Results are synthetic and for demonstration purposes only
+
 **Step 0. Prepare your Dataset:** Prepare the X_train, X_test, y_train, y_test
 
 **Step 1. Import the Package:** Import the dualPredictor package into your Python environment.
