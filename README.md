@@ -8,6 +8,7 @@
 ![Dependencies](https://img.shields.io/librariesio/github/098765d/dualPredictor)
 ![GitHub forks](https://img.shields.io/github/forks/098765d/dualPredictor)
 ![GitHub top language](https://img.shields.io/github/languages/top/098765d/dualPredictor)
+[![Demo](https://colab.research.google.com/assets/colab-badge.svg)](https://www.kaggle.com/code/ddatad/dualpredictor-demo)
 
 This Python package, based on the research paper **_"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"_**, integrates regression analysis with binary classification to predict student academic outcomes.
 
