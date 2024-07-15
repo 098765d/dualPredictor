@@ -1,3 +1,4 @@
+
 <p align="left">
   <img src="https://github.com/098765d/dualPredictor/raw/970fb03eb92b39bc6bc2ce6c54da712680068436/figs/logo.png" alt="Logo" width="120" height="120">
 </p>
@@ -102,21 +103,23 @@ model = DualModel(model_type='lasso', metric='youden_index', default_cut_off=2.5
 model.fit(X_train, y_train)
 grade_predictions, class_predictions = model.predict(X_train)
 
-# Accessing model attributes
+# Accessing model attributes (synthetic result for demo only)
 print("Alpha (regularization strength):", model.alpha_)
-print("Model coefficients:", model.coef_)
-print("Model intercept:", model.intercept_)
-print("Feature names:", model.feature_names_in_)
-print("Optimal cut-off value:", model.optimal_cut_off)
-```
-Example of output (demo only)
-```
 Alpha (regularization strength): 0.12
+
+print("Model coefficients:", model.coef_)
 Model coefficients: [0.2, -0.1, 0.3, 0.4]
+
+print("Model intercept:", model.intercept_)
 Model intercept: 2.5
+
+print("Feature names:", model.feature_names_in_)
 Feature names: ['feature1', 'feature2', 'feature3', 'feature4']
+
+print("Optimal cut-off value:", model.optimal_cut_off)
 Optimal cut-off value: 2.56
 ```
+
 
 ## 3. Quick Start
 
