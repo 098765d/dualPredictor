@@ -1,11 +1,16 @@
+<img src="https://github.com/098765d/dualPredictor/raw/3eb5eaf1db443dce99a2e6582a4ea0745f1ef76f/figs/long_logo.png" alt="Logo" style="width:29%;"> 
 
-<p align="left">
-  <img src="https://github.com/098765d/dualPredictor/raw/970fb03eb92b39bc6bc2ce6c54da712680068436/figs/logo.png" alt="Logo" width="110" height="110">
-</p>
+# An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification
 
-# Empowering Educators with An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification
+[![Github license](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+[![PyPI version](https://img.shields.io/pypi/v/dualPredictor.svg)](https://pypi.org/project/dualPredictor/)
+[![Build Status](https://github.com/098765d/dualPredictor/actions/workflows/release.yml/badge.svg)](https://github.com/098765d/dualPredictor/actions/workflows/release.yml)
+![Dependencies](https://img.shields.io/librariesio/github/098765d/dualPredictor)
+![GitHub forks](https://img.shields.io/github/forks/098765d/dualPredictor)
+![GitHub top language](https://img.shields.io/github/languages/top/098765d/dualPredictor)
 
-This Python package, based on the paper **"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"** combines regression analysis with binary classification to forecast student academic outcomes
+This Python package, based on the research paper **_"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"_**, integrates regression analysis with binary classification to predict student academic outcomes.
+
 
 ## 0. Package Installation
 
