@@ -1,6 +1,6 @@
 
 <p align="left">
-  <img src="https://github.com/098765d/dualPredictor/raw/970fb03eb92b39bc6bc2ce6c54da712680068436/figs/logo.png" alt="Logo" width="120" height="120">
+  <img src="https://github.com/098765d/dualPredictor/raw/970fb03eb92b39bc6bc2ce6c54da712680068436/figs/logo.png" alt="Logo" width="110" height="110">
 </p>
 
 # Empowering Educators with An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification
