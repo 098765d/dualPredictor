@@ -1,6 +1,6 @@
 <img src="https://github.com/098765d/dualPredictor/raw/3eb5eaf1db443dce99a2e6582a4ea0745f1ef76f/figs/long_logo.png" alt="Logo" style="width:29%;"> 
 
-## An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification
+# An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification
 
 [![Github license](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![PyPI version](https://img.shields.io/pypi/v/dualPredictor.svg)](https://pypi.org/project/dualPredictor/)
@@ -11,9 +11,10 @@
 
 This Python package, based on the research paper **_"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"_**, integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
 
-PyPI Link: https://pypi.org/project/dualPredictor/
+**Package Links:**
 
-Github Repo: https://github.com/098765d/dualPredictor/
+- **Python Package Index (PyPI)**: [dualPredictor on PyPI](https://pypi.org/project/dualPredictor/)
+- **GitHub Repository**: [dualPredictor on GitHub](https://github.com/098765d/dualPredictor/)
 
 
 ## 0. Package Installation
@@ -25,16 +26,18 @@ This package requires:
 - scikit-learn
 - Matplotlib
 - Seaborn
-
-**1st Step:** Install all the dependencies using the command: 
+  
+1. **Install dependencies**:
 ```bash
 pip install numpy scikit-learn matplotlib seaborn
 ```
-**2nd Step:** Install the dualPredictor package via PyPI or GitHub (Recommended). Choose one of the following methods:
+2. **Install the package** via PyPI or GitHub (Recommended):
 
 ```bash
 pip install dualPredictor
 ```
+
+OR
 
 ```bash
 pip install git+https://github.com/098765d/dualPredictor.git
@@ -92,8 +95,7 @@ The dualPredictor package aims to simplify complex models for users of all codin
 |                 | `feature_names_in_` | Names of features during model training                                                          |               
 |                 | `optimal_cut_off`   | The optimal cut-off value that maximizes the metric                                              |               
 
-### Example of the Model Object
-
+### Demonstration of Model Object Usage
 ```python
 from dualPredictor import DualModel
 
@@ -174,10 +176,11 @@ model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.featu
 ![](https://github.com/098765d/dualPredictor/raw/7a0869600faf1b8a8299fb3a0f8f86b5c1b1e2ab/figs/vis_output.png)
 **Fig 2**: Visualization Module Sample Outputs 
 
-**Another Demo**
+### Additional Demonstration
 
 Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data from Mugla Sitki Kocman University ('19 OOP Class Student Grades).
 [![Demo](https://colab.research.google.com/assets/colab-badge.svg)](https://www.kaggle.com/code/ddatad/dualpredictor-demo)
+
 
 
 ## References
