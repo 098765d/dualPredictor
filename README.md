@@ -5,7 +5,6 @@
 [![Github license](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![PyPI version](https://img.shields.io/pypi/v/dualPredictor.svg)](https://pypi.org/project/dualPredictor/)
 [![Build Status](https://github.com/098765d/dualPredictor/actions/workflows/release.yml/badge.svg)](https://github.com/098765d/dualPredictor/actions/workflows/release.yml)
-![Dependencies](https://img.shields.io/librariesio/github/098765d/dualPredictor)
 ![GitHub forks](https://img.shields.io/github/forks/098765d/dualPredictor)
 ![GitHub top language](https://img.shields.io/github/languages/top/098765d/dualPredictor)
 [![Demo](https://colab.research.google.com/assets/colab-badge.svg)](https://www.kaggle.com/code/ddatad/dualpredictor-demo)
