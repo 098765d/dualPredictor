@@ -15,7 +15,7 @@ This Python package, based on the research paper **_"Early Detecting and Support
 - **GitHub Repository**: [dualPredictor on GitHub](https://github.com/098765d/dualPredictor/)
 
 
-## 0. Package Installation
+## Package Installation
 
 This package requires:
 
