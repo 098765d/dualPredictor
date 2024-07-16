@@ -4,10 +4,8 @@
 
 [![Github license](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![PyPI version](https://img.shields.io/pypi/v/dualPredictor.svg)](https://pypi.org/project/dualPredictor/)
-[![Build Status](https://github.com/098765d/dualPredictor/actions/workflows/release.yml/badge.svg)](https://github.com/098765d/dualPredictor/actions/workflows/release.yml)
 ![GitHub forks](https://img.shields.io/github/forks/098765d/dualPredictor)
 ![GitHub top language](https://img.shields.io/github/languages/top/098765d/dualPredictor)
-[![Demo](https://colab.research.google.com/assets/colab-badge.svg)](https://www.kaggle.com/code/ddatad/dualpredictor-demo)
 
 This Python package, based on the research paper **_"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"_**, integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
 
@@ -179,7 +177,7 @@ model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.featu
 ### Additional Demonstration
 
 Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data from Mugla Sitki Kocman University ('19 OOP Class Student Grades).
-[![Demo](https://colab.research.google.com/assets/colab-badge.svg)](https://www.kaggle.com/code/ddatad/dualpredictor-demo)
+[![Kaggle](https://img.shields.io/badge/Kaggle-035a7d?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/code/ddatad/dualpredictor-demo)
 
 
 
