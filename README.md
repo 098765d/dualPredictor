@@ -10,7 +10,11 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/098765d/dualPredictor)
 [![Demo](https://colab.research.google.com/assets/colab-badge.svg)](https://www.kaggle.com/code/ddatad/dualpredictor-demo)
 
-This Python package, based on the research paper **_"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"_**, integrates regression analysis with binary classification to predict student academic outcomes.
+This Python package, based on the research paper **_"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"_**, integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
+
+PyPI Link: https://pypi.org/project/dualPredictor/
+
+Github Repo: https://github.com/098765d/dualPredictor/
 
 
 ## 0. Package Installation
@@ -39,14 +43,7 @@ pip install git+https://github.com/098765d/dualPredictor.git
 
 ## 1. Introduction
 
-Designed to simplify the implementation of advanced algorithms, this package allows users to train models, make predictions, and visualize results with **just 1 line of code** with **their own dataset**. This accessibility benefits educators with varying levels of IT expertise, making sophisticated algorithms readily available. 
-The package is easy to install via GitHub and PyPI:
-
-PyPI Link: https://pypi.org/project/dualPredictor/
-
-Github Repo: https://github.com/098765d/dualPredictor/
-
-Ensuring that educators can integrate advanced analytics into their workflows seamlessly.
+The package enables educators to predict student academic outcomes and identify at-risk students with ease. The following steps outline the process:
 
 - **Step 1: Grade Prediction Using the Trained Regressor** (Fig 1, Step 1)
   fit the linear model f(x) using the training data, and grade prediction can be generated from the fitted model
