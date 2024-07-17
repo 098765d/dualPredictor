@@ -180,17 +180,9 @@ model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.featu
 
 ### Additional Demonstration
 
-Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data from Mugla Sitki Kocman University ('19 OOP Class Student Grades). Students are considered at-risk if their final grade is below 50 (on a scale from 0 to 100).
+Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data from Mugla Sitki Kocman University ('19 OOP Class Student Grades). 
 [![Kaggle](https://img.shields.io/badge/Kaggle-035a7d?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/code/ddatad/dualpredictor-demo)
 
-| Metric                  | Train Set | Test Set |
-|-------------------------|-------------------------------|------------------------------|
-| N                       | 33                            | 22                           |
-| R²                      | 0.90                          | 0.74                         |
-| Classification Rate     | 0.88                          | 0.77                         |
-| Number of At-Risk Points| 21                            | 13                           |
-| Number of Miss Detects  | 3                             | 2                            |
-| Number of False Alarms  | 1                             | 3                            |
 
 
 ## References
