@@ -1,7 +1,6 @@
 <img src="https://github.com/098765d/dualPredictor/raw/3eb5eaf1db443dce99a2e6582a4ea0745f1ef76f/figs/long_logo.png" alt="Logo" style="width:29%;"> 
 
 # An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification
-
 [![Github license](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![PyPI version](https://img.shields.io/pypi/v/dualPredictor.svg)](https://pypi.org/project/dualPredictor/)
 ![GitHub forks](https://img.shields.io/github/forks/098765d/dualPredictor)
