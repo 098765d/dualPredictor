@@ -6,8 +6,15 @@
 [![PyPI version](https://img.shields.io/pypi/v/dualPredictor.svg)](https://pypi.org/project/dualPredictor/)
 ![GitHub forks](https://img.shields.io/github/forks/098765d/dualPredictor)
 ![GitHub top language](https://img.shields.io/github/languages/top/098765d/dualPredictor)
+[![Build Status](https://github.com/098765d/dualPredictor/actions/workflows/release.yml/badge.svg)](https://github.com/098765d/dualPredictor/actions/workflows/release.yml)
+[![GitHub repo size](https://img.shields.io/github/repo-size/098765d/dualPredictor)](https://github.com/098765d/dualPredictor)
+[![Code Size](https://img.shields.io/github/languages/code-size/098765d/dualPredictor)](https://github.com/098765d/dualPredictor)
+[![Contributors](https://img.shields.io/github/contributors/098765d/dualPredictor.svg)](https://github.com/098765d/dualPredictor/graphs/contributors)
 
-This Python package, based on the research paper **_"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"_**, integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
+
+
+
+Based on the research paper **_"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"_**, this Python package integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
 
 **Package Links:**
 
@@ -43,7 +50,7 @@ pip install git+https://github.com/098765d/dualPredictor.git
 
 ## 1. Introduction
 
-The package enables educators to predict student academic outcomes and identify at-risk students with ease. The following steps outline the process:
+The package enables educators to easily predict student academic outcomes and identify at-risk students. The following steps outline the process:
 
 - **Step 1: Grade Prediction Using the Trained Regressor** (Fig 1, Step 1)
   fit the linear model f(x) using the training data, and grade prediction can be generated from the fitted model
@@ -83,7 +90,7 @@ The dualPredictor package aims to simplify complex models for users of all codin
 | Category        | Name                | Description                                                                                      | 
 |-----------------|---------------------|--------------------------------------------------------------------------------------------------|
 | **Parameters**  | `model_type`        | Type of regression model to use. For example:  - `'lasso'` (Lasso regression)|
-|                 | `metric`            | Metric is used to optimize the cut-off value. For example:  - `'youden_index'` (Youden's Index) |
+|                 | `metric`            | Metric optimizes the cut-off value. For example:  - `'youden_index'` (Youden's Index) |
 |                 | `default_cut_off`   | Initial cut-off value used for binary classification. For example: 2.50              | 
 | **Methods**     | `fit(X, y)`         | - **X**: The input training data, pandas data frame. <br> - **y**: The target values (predicted grade). <br> - **Returns**: Fitted DualModel instance | 
 |                 | `predict(X)`        | - **X**: The input data for predeiction, pandas data frame.                                              |  
@@ -152,7 +159,7 @@ y_test_pred,y_test_label_pred = model.predict(X_test)
 # Example of model's 1st output = predicted scores (regression result)
 y_test_pred
 array([3.11893389, 3.06013236, 3.05418893, 3.09776197, 3.14898782,
-       2.37679417, 2.99367804, 2.77202421, 2.9603209 , 3.01052573])
+       2.37679417, 2.99367804, 2.77202421, 2.9603209, 3.01052573])
 
 # Example of model's 2nd output = predicted at-risk status (binary label)
 y_test_label_pred
