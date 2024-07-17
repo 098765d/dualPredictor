@@ -12,14 +12,12 @@
 [![Contributors](https://img.shields.io/github/contributors/098765d/dualPredictor.svg)](https://github.com/098765d/dualPredictor/graphs/contributors)
 
 
-
-
 Based on the research paper **_"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"_**, this Python package integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
 
 **Package Links:**
 
-- **Python Package Index (PyPI)**: [dualPredictor on PyPI](https://pypi.org/project/dualPredictor/)
-- **GitHub Repository**: [dualPredictor on GitHub](https://github.com/098765d/dualPredictor/)
+- Python Package Index (PyPI): [dualPredictor on PyPI](https://pypi.org/project/dualPredictor/)
+- GitHub Repository: [dualPredictor on GitHub](https://github.com/098765d/dualPredictor/)
 
 
 ## Package Installation
@@ -50,7 +48,7 @@ pip install git+https://github.com/098765d/dualPredictor.git
 
 ## 1. Introduction
 
-The package enables educators to easily predict student academic outcomes and identify at-risk students. The following steps outline the process:
+The package enables educators to predict student academic outcomes and identify at-risk students easily. The following steps outline the process:
 
 - **Step 1: Grade Prediction Using the Trained Regressor** (Fig 1, Step 1)
   fit the linear model f(x) using the training data, and grade prediction can be generated from the fitted model
