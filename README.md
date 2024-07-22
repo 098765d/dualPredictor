@@ -11,7 +11,7 @@
 [![Contributors](https://img.shields.io/github/contributors/098765d/dualPredictor.svg)](https://github.com/098765d/dualPredictor/graphs/contributors)
 
 
-Based on the research paper **_[1]"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"(2024)_**, this Python package integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
+Based on the research paper **_"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"(2024)_**, this Python package integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
 
 **Package Links:**
 
