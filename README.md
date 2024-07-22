@@ -175,7 +175,7 @@ model_plot.plot_cm(y_label_true, y_label_pred)
 model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.feature_names_in_)
 ```
 
-![](https://github.com/098765d/dualPredictor/raw/7a0869600faf1b8a8299fb3a0f8f86b5c1b1e2ab/figs/vis_output.png)
+![](https://github.com/098765d/dualPredictor/raw/41284f1b6f00a5f3708f94b8a51c8f7d1504f29f/figs/github_fig2.png)
 **Fig 2**: Visualization Module Sample Outputs 
 
 ### Additional Demonstration
