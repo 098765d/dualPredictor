@@ -75,7 +75,7 @@ The package enables educators to predict student academic outcomes and identify 
   - y_pred_label = 1 (at-risk): if y_pred < optimal_cut_off
   - y_pred_label = 0 (normal): if y_pred >= optimal_cut_off
     
-![](https://github.com/098765d/dualPredictor/raw/eb30145140a93d355342340d2a7ab256ccbbbf6e/figs/how_dual_works.png)
+![](https://github.com/098765d/dualPredictor/raw/3cec36aa792830dd1993d843642edb421426bc6e/figs/github_fig1.png)
 **Fig 1**: How does dualPredictor provide dual prediction output?
 
 ## 2. The Model Object (Parameters, Methods, and Attributes)
