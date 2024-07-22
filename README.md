@@ -196,5 +196,7 @@ Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data
 
 [5] Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., ... & Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. _The Journal of Machine Learning Research_, 12, 2825-2830.
 
-[6] Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. _Journal of the Royal Statistical Society Series B: Statistical Methodology_, 58(1), 267-288.
+[6] Scikit-learn developers. (2024, July). Balanced accuracy score. Scikit-learn. https://scikit-learn.org/stable/modules/model_evaluation.html#balanced-accuracy-score
+
+[7] Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. _Journal of the Royal Statistical Society Series B: Statistical Methodology_, 58(1), 267-288.
 
