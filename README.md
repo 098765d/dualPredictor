@@ -11,7 +11,7 @@
 [![Contributors](https://img.shields.io/github/contributors/098765d/dualPredictor.svg)](https://github.com/098765d/dualPredictor/graphs/contributors)
 
 
-Based on the research paper **_"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"_**, this Python package integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
+Based on the research paper **_[1]"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"(2024)_**, this Python package integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
 
 **Package Links:**
 
@@ -74,7 +74,7 @@ The package enables educators to predict student academic outcomes and identify 
   
   - y_pred_label = 1 (at-risk): if y_pred < optimal_cut_off
   - y_pred_label = 0 (normal): if y_pred >= optimal_cut_off
-  - 
+    
 ![](https://github.com/098765d/dualPredictor/raw/eb30145140a93d355342340d2a7ab256ccbbbf6e/figs/how_dual_works.png)
 **Fig 1**: How does dualPredictor provide dual prediction output?
 
@@ -186,13 +186,15 @@ Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data
 
 
 ## References
+[1] Early detecting and supporting at-risk university students through data analytics and intervention. (2024). *Working Paper*.
 
-[1] Fluss, R., Faraggi, D., & Reiser, B. (2005). Estimation of the Youden Index and its associated cutoff point. _Biometrical Journal: Journal of Mathematical Methods in Biosciences_, 47(4), 458-472.
+[2] Fluss, R., Faraggi, D., & Reiser, B. (2005). Estimation of the Youden Index and its associated cutoff point. _Biometrical Journal: Journal of Mathematical Methods in Biosciences_, 47(4), 458-472.
 
-[2] Hoerl, A. E., & Kennard, R. W. (1970). Ridge regression: Biased estimation for nonorthogonal problems. _Technometrics_, 12(1), 55-67.
+[3] Hoerl, A. E., & Kennard, R. W. (1970). Ridge regression: Biased estimation for nonorthogonal problems. _Technometrics_, 12(1), 55-67.
 
-[3] Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. Advances in neural information processing systems, 30.
+[4] Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. Advances in neural information processing systems, 30.
 
-[4] Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., ... & Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. _The Journal of Machine Learning Research_, 12, 2825-2830.
+[5] Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., ... & Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. _The Journal of Machine Learning Research_, 12, 2825-2830.
 
-[5] Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. _Journal of the Royal Statistical Society Series B: Statistical Methodology_, 58(1), 267-288.
+[6] Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. _Journal of the Royal Statistical Society Series B: Statistical Methodology_, 58(1), 267-288.
+
