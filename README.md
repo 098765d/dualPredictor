@@ -63,11 +63,11 @@ The package enables educators to predict student academic outcomes and identify 
   ```math
   \text{optimal\_cut\_off} = \arg\max_c g(y_{\text{true\_label}}, y_{\text{pred\_label}}(c))
   ```
-  This formula searches for the cut-off value that produces the highest value of the metric function g, where:
-  
-  * **c**: The tunned cut-off that determines the y_pred_label
-  * y_true_label: True label of the data point based on the default cut-off (e.g., 1 for at-risk, 0 for normal)
-  * y_pred_label: Predicted label of the data point based on the tunned cut-off value
+  This formula identifies the cut-off value that maximizes the value of the metric function g, where:
+    * **c**: The tuned cut-off that determines the y_pred_label
+    * **y_true_label**: The true label of the data point based on the default cut-off (e.g., 1 for at-risk, 0 for normal).
+    * **y_pred_label**: The predicted label of the data point based on the tuned cut-off value.
+    * **g**(y_true_label, y_pred_label(c)): The metric value that evaluates the performance of the binary classification (e.g., Youden Index).
 
     
 - **Step 3: Binary Label Prediction**: (Fig 1, Step 3)
