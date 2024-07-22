@@ -186,7 +186,7 @@ Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data
 
 
 ## References
-[1] Early detecting and supporting at-risk university students through data analytics and intervention. (2024). *Working Paper*.
+**[1] Early detecting and supporting at-risk university students through data analytics and intervention. (2024). *Working Paper*.**
 
 [2] Fluss, R., Faraggi, D., & Reiser, B. (2005). Estimation of the Youden Index and its associated cutoff point. _Biometrical Journal: Journal of Mathematical Methods in Biosciences_, 47(4), 458-472.
 
