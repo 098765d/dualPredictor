@@ -18,7 +18,6 @@ Based on the research paper **_"Early Detecting and Supporting At-Risk Universit
 - Python Package Index (PyPI): [dualPredictor on PyPI](https://pypi.org/project/dualPredictor/)
 - GitHub Repository: [dualPredictor on GitHub](https://github.com/098765d/dualPredictor/)
 
-
 ## Package Installation
 
 This package requires:
@@ -49,12 +48,23 @@ pip install git+https://github.com/098765d/dualPredictor.git
 
 The package enables educators to predict student academic outcomes and identify at-risk students easily. The following steps outline the process:
 
+![](https://github.com/098765d/dualPredictor/raw/c72cedeaeb52eeb3b700f0a1570626978e40063c/figs/github_fig1.png)
+**Fig 1**: How does dualPredictor provide dual prediction output?
+
 - **Step 1: Grade Prediction Using the Trained Regressor** (Fig 1, Step 1)
   fit the linear model f(x) using the training data, and grade prediction can be generated from the fitted model
   
   ```math
-      y\_pred = f(x) = \sum_{j=1}^{M} w_j x_j + b 
+      y\_pred = f(x) = \sum_{j=1}^{M} w_j x_j + b
   ```
+    
+  Where:
+  - **y_pred**: The predicted grade for a student.
+  - **x_j**: The j-th feature of the student (e.g., previous grades, attendance).
+  - **w_j**: The weight associated with the j-th feature.
+  - **b**: The bias term.
+  - **M**: The total number of features in the model.
+  
   
 - **Step 2: Determining the Optimal Cut-off** (Fig 1, Step 2)
   
@@ -63,11 +73,20 @@ The package enables educators to predict student academic outcomes and identify 
   ```math
   \text{optimal\_cut\_off} = \arg\max_c g(y_{\text{true\_label}}, y_{\text{pred\_label}}(c))
   ```
-  This formula identifies the cut-off value that maximizes the value of the metric function g, where:
-    * **c**: The tuned cut-off that determines the y_pred_label
-    * **y_true_label**: The true label of the data point based on the default cut-off (e.g., 1 for at-risk, 0 for normal).
-    * **y_pred_label**: The predicted label of the data point based on the tuned cut-off value.
-    * **g**(y_true_label, y_pred_label(c)): The metric value that evaluates the performance of the binary classification (e.g., Youden Index).
+  
+  Where:
+  * **c**: The tuned cut-off that determines the y_pred_label
+  * **y_true_label**: The true label of the data point based on the default cut-off (e.g., 1 for at-risk, 0 for normal).
+  * **y_pred_label**: The predicted label of the data point based on the tuned cut-off value.
+  * **g(y_true_label, y_pred_label(c))**: The metric value that evaluates the performance of the binary classification (e.g., Youden Index).
+   
+  For Instance, if we use Youden Index as the metric for the model performance, the equation would be:
+      
+  ```math
+  \text{optimal\_cut\_off} = \arg\max_c \left[ \frac{TP}{TP + FN} + \frac{TN}{TN + FP} - 1 \right]
+  ```
+
+  (TP, TN, FP, and FN are calculated based on **y_true_label** and **y_pred_label(c)**.)
 
     
 - **Step 3: Binary Label Prediction**: (Fig 1, Step 3)
@@ -75,9 +94,6 @@ The package enables educators to predict student academic outcomes and identify 
   - y_pred_label = 1 (at-risk): if y_pred < optimal_cut_off
   - y_pred_label = 0 (normal): if y_pred >= optimal_cut_off
     
-![](https://github.com/098765d/dualPredictor/raw/c72cedeaeb52eeb3b700f0a1570626978e40063c/figs/github_fig1.png)
-**Fig 1**: How does dualPredictor provide dual prediction output?
-
 ## 2. The Model Object (Parameters, Methods, and Attributes)
 
 The dualPredictor package aims to simplify complex models for users of all coding levels. It adheres to the syntax of the scikit-learn library and simplifies model training by allowing you to fit the model with just one line of code. The core part of the package is the model object called DualModel, which can be imported from the dualPredictor library.
@@ -163,7 +179,7 @@ y_test_label_pred
 array([0, 0, 0, 0, 0, 1, 0, 0, 1, 0])
 ```
 
-**Step 5.Visualization:** Visualize the model's performance with just one line of code
+**Step 5.Visualizations:** Visualize the model's performance with just one line of code
 ```python
 # Scatter plot for regression analysis 
 model_plot.plot_scatter(y_pred, y_true)
@@ -182,7 +198,6 @@ model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.featu
 
 Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data from Mugla Sitki Kocman University ('19 OOP Class Student Grades). 
 [![Kaggle](https://img.shields.io/badge/Kaggle-035a7d?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/code/ddatad/dualpredictor-demo)
-
 
 
 ## References
