@@ -18,6 +18,15 @@ Based on the research paper **_"Early Detecting and Supporting At-Risk Universit
 - Python Package Index (PyPI): [dualPredictor on PyPI](https://pypi.org/project/dualPredictor/)
 - GitHub Repository: [dualPredictor on GitHub](https://github.com/098765d/dualPredictor/)
 
+
+## Table of Contents
+
+- [Package Installation](#package-installation)
+- [1. Methodology](#1-methodology)
+- [2. The Model Object (Parameters, Methods, and Attributes)](#2-the-model-object-parameters-methods-and-attributes)
+- [3. Quick Start](#3-quick-start)
+- [References](#references)
+
 ## Package Installation
 
 This package requires:
@@ -44,9 +53,9 @@ OR
 pip install git+https://github.com/098765d/dualPredictor.git
 ```
 
-## 1. Introduction
+## 1. Methodology
 
-The package enables educators to predict student academic outcomes and identify at-risk students easily. The following steps outline the process:
+The package enables educators to predict student academic outcomes and identify at-risk students efficiently. The process involves three key steps:
 
 ![](https://github.com/098765d/dualPredictor/raw/c72cedeaeb52eeb3b700f0a1570626978e40063c/figs/github_fig1.png)
 **Fig 1**: How does dualPredictor provide dual prediction output?
