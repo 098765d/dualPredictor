@@ -1,26 +1,35 @@
-<img src="https://github.com/098765d/dualPredictor/raw/3eb5eaf1db443dce99a2e6582a4ea0745f1ef76f/figs/long_logo.png" alt="Logo" style="width:29%;"> 
+<div align="center">
+  <img src="https://github.com/098765d/dualPredictor/raw/3eb5eaf1db443dce99a2e6582a4ea0745f1ef76f/figs/long_logo.png" alt="Logo" style="width:29%;">
+  <h1>An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification</h1>
+  <p>
+    <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="Github license"></a>
+    <a href="https://pypi.org/project/dualPredictor/"><img src="https://img.shields.io/pypi/v/dualPredictor.svg" alt="PyPI version"></a>
+    <img src="https://img.shields.io/github/forks/098765d/dualPredictor" alt="GitHub forks">
+    <img src="https://img.shields.io/github/languages/top/098765d/dualPredictor" alt="GitHub top language">
+    <a href="https://github.com/098765d/dualPredictor/actions/workflows/release.yml"><img src="https://github.com/098765d/dualPredictor/actions/workflows/release.yml/badge.svg" alt="Build Status"></a>
+    <a href="https://github.com/098765d/dualPredictor"><img src="https://img.shields.io/github/repo-size/098765d/dualPredictor" alt="GitHub repo size"></a>
+    <img src="https://img.shields.io/github/languages/code-size/098765d/dualPredictor" alt="Code Size">
+    <a href="https://github.com/098765d/dualPredictor/graphs/contributors"><img src="https://img.shields.io/github/contributors/098765d/dualPredictor.svg" alt="Contributors"></a>
+  </p>
+</div>
 
-# An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification
-[![Github license](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-[![PyPI version](https://img.shields.io/pypi/v/dualPredictor.svg)](https://pypi.org/project/dualPredictor/)
-![GitHub forks](https://img.shields.io/github/forks/098765d/dualPredictor)
-![GitHub top language](https://img.shields.io/github/languages/top/098765d/dualPredictor)
-[![Build Status](https://github.com/098765d/dualPredictor/actions/workflows/release.yml/badge.svg)](https://github.com/098765d/dualPredictor/actions/workflows/release.yml)
-[![GitHub repo size](https://img.shields.io/github/repo-size/098765d/dualPredictor)](https://github.com/098765d/dualPredictor)
-[![Code Size](https://img.shields.io/github/languages/code-size/098765d/dualPredictor)](https://github.com/098765d/dualPredictor)
-[![Contributors](https://img.shields.io/github/contributors/098765d/dualPredictor.svg)](https://github.com/098765d/dualPredictor/graphs/contributors)
-
-
+---
 
 Based on the research paper **_"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"(2024)_**, this Python package ([dualPredictor on PyPI](https://pypi.org/project/dualPredictor/); [dualPredictor on GitHub](https://github.com/098765d/dualPredictor/)) integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
 
 ## Table of Contents
+<details>
+  <summary>Click to expand</summary>
 
-- [Package Installation](#package-installation)
-- [1. Methodology](#1-methodology)
-- [2. The Model Object (Parameters, Methods, and Attributes)](#2-the-model-object-parameters-methods-and-attributes)
-- [3. Quick Start](#3-quick-start)
-- [References](#references)
+  - [Package Installation](#package-installation)
+  - [1. Methodology](#1-methodology)
+  - [2. The Model Object (Parameters, Methods, and Attributes)](#2-the-model-object-parameters-methods-and-attributes)
+  - [3. Quick Start](#3-quick-start)
+  - [References](#references)
+</details>
+
+---
+
 
 ## Package Installation
 
@@ -215,7 +224,7 @@ Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data
 
 [5] Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., ... & Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. _The Journal of Machine Learning Research_, 12, 2825-2830.
 
-[6] Scikit-learn developers. (2024, July). Balanced accuracy score. Scikit-learn. https://scikit-learn.org/stable/modules/model_evaluation.html#balanced-accuracy-score
+[6] Scikit-learn developers. (2024, July). 3.4. metrics and scoring: Quantifying the quality of predictions. Scikit-learn. https://scikit-learn.org/stable/modules/model_evaluation.html#balanced-accuracy-score
 
 [7] Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. _Journal of the Royal Statistical Society Series B: Statistical Methodology_, 58(1), 267-288.
 
