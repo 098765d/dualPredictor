@@ -99,13 +99,24 @@ def plot_cm(y_label_true, y_label_pred):
 
     # Calculate the confusion matrix
     cm = confusion_matrix(y_label_true, y_label_pred)
-    tn, fp, fn, tp=cm.ravel()
+
+    # Handle the case where all values in the confusion matrix are zero (all predictions and true labels are 0)
+    if np.sum(cm) == 0:
+        print("All values in y_label_true and y_label_pred are 0. Confusion matrix is not valid.")
+        return None
+
+    # Check if confusion matrix is 2x2 (for binary classification) to avoid ravel issues
+    if cm.shape == (2, 2):
+        tn, fp, fn, tp = cm.ravel()
+    else:
+        tn, fp, fn, tp = 0, 0, 0, 0  # Assign zeroes if confusion matrix shape is unexpected
 
     # Calculate the number of data points, number of miss detects, number of false alarms, and classification rate
     num_data_points = len(y_label_true)
-    num_false_alarms,num_miss_detects = fp,fn
-    classification_rate = round(np.trace(cm) / num_data_points,3)
-    num_tp=tp+fn
+    num_false_alarms = fp
+    num_miss_detects = fn
+    classification_rate = round(np.trace(cm) / num_data_points, 3)
+    num_tp = tp + fn
 
     # Print the number of data points, number of miss detects, number of false alarms, and classification rate
     print("Number of data points:", num_data_points)
@@ -124,7 +135,7 @@ def plot_cm(y_label_true, y_label_pred):
     ax.set_title(title)
 
     return fig
-
+   
 def plot_feature_coefficients(coef, feature_names):
 
     # Round the coefficients to 3 decimal places
