@@ -102,8 +102,10 @@ def plot_cm(y_label_true, y_label_pred):
 
     # Handle the case where all values in the confusion matrix are zero (all predictions and true labels are 0)
     if np.sum(cm) == 0:
-        print("All values in y_label_true and y_label_pred are 0. Confusion matrix is not valid.")
-        return None
+       disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+       fig, ax = plt.subplots(figsize=(4, 4), dpi=500)
+       disp.plot(ax=ax)
+       return fig
 
     # Check if confusion matrix is 2x2 (for binary classification) to avoid ravel issues
     if cm.shape == (2, 2):
