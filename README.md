@@ -25,6 +25,7 @@ Based on the research paper **_"Early Detecting and Supporting At-Risk Universit
   - [1. Methodology](#1-methodology)
   - [2. The Model Object (Parameters, Methods, and Attributes)](#2-the-model-object-parameters-methods-and-attributes)
   - [3. Quick Start](#3-quick-start)
+  - [4. Download the EXE Version](#4-download-the-exe-version)
   - [References](#references)
 </details>
 
@@ -206,6 +207,14 @@ model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.featu
 
 ![](https://github.com/098765d/dualPredictor/raw/41284f1b6f00a5f3708f94b8a51c8f7d1504f29f/figs/github_fig2.png)
 **Fig 2**: Visualization Module Sample Outputs 
+
+## 4. Download the EXE Version
+
+For users who prefer to run the application without setting up the Python environment, you can download the **EXE** version of the DualPredictor GUI application.
+
+[Download the EXE version here](https://github.com/098765d/dualPredictor/releases/download/v1.0.0/ml_app.exe)
+
+This standalone EXE file allows you to use the tool directly on your Windows machine without needing Python or any dependencies installed.
 
 ### Additional Demonstration
 
