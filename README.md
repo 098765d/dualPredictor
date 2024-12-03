@@ -216,6 +216,10 @@ For users who prefer to run the application without setting up the Python enviro
 
 This standalone EXE file allows you to use the tool directly on your Windows machine without needing Python or any dependencies installed.
 
+Watch the DualPredictor.exe demonstration:
+
+[![YouTube Video Thumbnail](https://img.youtube.com/vi/kyy0xpCzbFM/0.jpg)](https://www.youtube.com/watch?v=kyy0xpCzbFM)
+
 ### Additional Demonstration
 
 Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data from Mugla Sitki Kocman University ('19 OOP Class Student Grades). 
