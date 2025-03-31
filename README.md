@@ -15,7 +15,7 @@
 
 ---
 
-Based on the research paper **_"Early Detecting and Supporting At-Risk University Students through Data Analytics and Intervention"(2024)_**, this Python package ([dualPredictor on PyPI](https://pypi.org/project/dualPredictor/); [dualPredictor on GitHub](https://github.com/098765d/dualPredictor/)) integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
+Based on the research paper **Dong, C. et al. (2025). A Data-Analytical Framework for the Early Detection of At-Risk Students in Higher Education. Accepted at the 14th International Conference on Educational and Information Technology (ICEIT 2025), Published in Springer LNET Edited Volume.**, this Python package ([dualPredictor on PyPI](https://pypi.org/project/dualPredictor/); [dualPredictor on GitHub](https://github.com/098765d/dualPredictor/)) integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
 
 ## Table of Contents
 <details>
@@ -227,7 +227,7 @@ Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data
 
 
 ## References
-**[1] Early detecting and supporting at-risk university students through data analytics and intervention. (2024). *Working Paper*.**
+**[1] Dong, C. et al. (2025). A Data-Analytical Framework for the Early Detection of At-Risk Students in Higher Education. Accepted at the 14th International Conference on Educational and Information Technology (ICEIT 2025), Published in Springer LNET Edited Volume..**
 
 [2] Fluss, R., Faraggi, D., & Reiser, B. (2005). Estimation of the Youden Index and its associated cutoff point. _Biometrical Journal: Journal of Mathematical Methods in Biosciences_, 47(4), 458-472.
 
