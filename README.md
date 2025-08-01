@@ -14,7 +14,7 @@
 
 ---
 
-This Python package ([dualPredictor on PyPI](https://pypi.org/project/dualPredictor/); [dualPredictor on GitHub](https://github.com/098765d/dualPredictor/)) implements methodologies from our research outputs [[1]](#1) [[2]](#2) that enable educators to predict student academic outcomes and identify at-risk students efficiently, and integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
+This Python package implements methodologies from our research outputs [[1]](#1) [[2]](#2) that enable educators to predict student academic outcomes and identify at-risk students efficiently, and integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
 
 ## Table of Contents
 <details>
