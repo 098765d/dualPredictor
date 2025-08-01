@@ -1,5 +1,5 @@
 <div align="center">
-  <h2>An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification</h2>
+  <h2>An Open-Source Tool Simultaneous Grade Regression and Risk Classification for Education</h2>
   <p>
     <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="Github license"></a>
     <a href="https://pypi.org/project/dualPredictor/"><img src="https://img.shields.io/pypi/v/dualPredictor.svg" alt="PyPI version"></a>
