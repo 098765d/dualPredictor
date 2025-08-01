@@ -1,6 +1,5 @@
 <div align="center">
-  <img src="https://github.com/098765d/dualPredictor/raw/3eb5eaf1db443dce99a2e6582a4ea0745f1ef76f/figs/long_logo.png" alt="Logo" style="width:29%;">
-  <h1>An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification</h1>
+  <h2>An Open-Source Tool for Simultaneous Grade Prediction and At-risk Student Identification</h2>
   <p>
     <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="Github license"></a>
     <a href="https://pypi.org/project/dualPredictor/"><img src="https://img.shields.io/pypi/v/dualPredictor.svg" alt="PyPI version"></a>
@@ -15,7 +14,7 @@
 
 ---
 
-Based on the research paper **Dong, C. et al. (2025). A Data-Analytical Framework for the Early Detection of At-Risk Students in Higher Education. Accepted at the 14th International Conference on Educational and Information Technology (ICEIT 2025), Published in Springer LNET Edited Volume.**, this Python package ([dualPredictor on PyPI](https://pypi.org/project/dualPredictor/); [dualPredictor on GitHub](https://github.com/098765d/dualPredictor/)) integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
+This Python package ([dualPredictor on PyPI](https://pypi.org/project/dualPredictor/); [dualPredictor on GitHub](https://github.com/098765d/dualPredictor/)) implements methodologies from our research outputs [[1]](#1) [[2]](#2) that enable educators to predict student academic outcomes and identify at-risk students efficiently, and integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
 
 ## Table of Contents
 <details>
@@ -25,7 +24,6 @@ Based on the research paper **Dong, C. et al. (2025). A Data-Analytical Framewor
   - [1. Methodology](#1-methodology)
   - [2. The Model Object (Parameters, Methods, and Attributes)](#2-the-model-object-parameters-methods-and-attributes)
   - [3. Quick Start](#3-quick-start)
-  - [4. Download the EXE Version](#4-download-the-exe-version)
   - [References](#references)
 </details>
 
@@ -208,36 +206,27 @@ model_plot.plot_feature_coefficients(coef=model.coef_, feature_names=model.featu
 ![](https://github.com/098765d/dualPredictor/raw/41284f1b6f00a5f3708f94b8a51c8f7d1504f29f/figs/github_fig2.png)
 **Fig 2**: Visualization Module Sample Outputs 
 
-## 4. Download the EXE Version
-
-For users who prefer to run the application without setting up the Python environment, you can download the **EXE** version of the DualPredictor GUI application.
-
-[Download the EXE version here](https://github.com/098765d/dualPredictor/releases/download/v1.0.0/ml_app.exe)
-
-This standalone EXE file allows you to use the tool directly on your Windows machine without needing Python or any dependencies installed.
-
-Watch the DualPredictor.exe demonstration:
-
-[![YouTube Video Thumbnail](https://img.youtube.com/vi/kyy0xpCzbFM/0.jpg)](https://www.youtube.com/watch?v=kyy0xpCzbFM)
 
 ### Additional Demonstration
 
 Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data from Mugla Sitki Kocman University ('19 OOP Class Student Grades). 
 [![Kaggle](https://img.shields.io/badge/Kaggle-035a7d?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/code/ddatad/dualpredictor-demo)
 
+---
 
 ## References
-**[1] Dong, C. et al. (2025). A Data-Analytical Framework for the Early Detection of At-Risk Students in Higher Education. Accepted at the 14th International Conference on Educational and Information Technology (ICEIT 2025), Published in Springer LNET Edited Volume..**
 
-[2] Fluss, R., Faraggi, D., & Reiser, B. (2005). Estimation of the Youden Index and its associated cutoff point. _Biometrical Journal: Journal of Mathematical Methods in Biosciences_, 47(4), 458-472.
+<a id="1">[1]</a> Dong, C., Yip, J. C., Ling, A. M. H., Kwan, J. L. Y., Yu, P. L. H., Cheng, M. H. M., Lee, J. C. & Li, W. K. *"A Data-Analytical Framework for the Early Detection of At-Risk Students in Higher Education."* In Della Ventura, M. & Zhan, Z. (eds.), Exploring Innovations in Educational Technology: The ICEIT'25 Collection, Lecture Notes in Educational Technology (Chapters 1-2). Springer Nature, Singapore. 2025.
 
-[3] Hoerl, A. E., & Kennard, R. W. (1970). Ridge regression: Biased estimation for nonorthogonal problems. _Technometrics_, 12(1), 55-67.
+<a id="2">[2]</a> Yip, J. C., Dong, C., Ling, A. M. H., Kwan, J. L. Y., Yu, P. L. H., Cheng, M. H. M., Lee, J. C. & Li, W. K. *"A Data-Analytic Approach to Early Detection of At-Risk Students in Higher Education."* Proc. 7th International Conference on Computer Science and Technologies in Education (CSTE 2025), pp. 228-232. IEEE. 2025.
 
-[4] Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. Advances in neural information processing systems, 30.
+[3] Fluss, R., Faraggi, D., & Reiser, B. (2005). Estimation of the Youden Index and its associated cutoff point. _Biometrical Journal: Journal of Mathematical Methods in Biosciences_, 47(4), 458-472.
 
-[5] Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., ... & Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. _The Journal of Machine Learning Research_, 12, 2825-2830.
+[4] Hoerl, A. E., & Kennard, R. W. (1970). Ridge regression: Biased estimation for nonorthogonal problems. _Technometrics_, 12(1), 55-67.
 
-[6] Scikit-learn developers. (2024, July). 3.4. metrics and scoring: Quantifying the quality of predictions. Scikit-learn. https://scikit-learn.org/stable/modules/model_evaluation.html#balanced-accuracy-score
+[5] Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. Advances in neural information processing systems, 30.
+
+[6] Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., ... & Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. _The Journal of Machine Learning Research_, 12, 2825-2830.
 
 [7] Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. _Journal of the Royal Statistical Society Series B: Statistical Methodology_, 58(1), 267-288.
 
