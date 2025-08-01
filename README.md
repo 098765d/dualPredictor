@@ -218,7 +218,7 @@ Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data
 
 <a id="1">[1]</a> Dong, C., Yip, J. C., Ling, A. M. H., Kwan, J. L. Y., Yu, P. L. H., Cheng, M. H. M., Lee, J. C. & Li, W. K. *"A Data-Analytical Framework for the Early Detection of At-Risk Students in Higher Education."* In Della Ventura, M. & Zhan, Z. (eds.), Exploring Innovations in Educational Technology: The ICEIT'25 Collection, Lecture Notes in Educational Technology (Chapters 1-2). Springer Nature, Singapore. 2025.
 
-<a id="2">[2]</a> Yip, J. C., Dong, C., Ling, A. M. H., Kwan, J. L. Y., Yu, P. L. H., Cheng, M. H. M., Lee, J. C. & Li, W. K. *"A Data-Analytic Approach to Early Detection of At-Risk Students in Higher Education."* Proc. 7th International Conference on Computer Science and Technologies in Education (CSTE 2025), pp. 228-232. IEEE. 2025.
+<a id="2">[2]</a> Yip, J. C., Dong, C., Ling, A. M. H., Kwan, J. L. Y., Yu, P. L. H., Cheng, M. H. M., Lee, J. C. & Li, W. K. *"A Data-Analytic Approach to Early Detection of At-Risk Students in Higher Education."* 2025 7th International Conference on Computer Science and Technologies in Education (CSTE), Wuhan, China, 2025, pp. 228-232, doi: 10.1109/CSTE64638.2025.11092031.
 
 [3] Fluss, R., Faraggi, D., & Reiser, B. (2005). Estimation of the Youden Index and its associated cutoff point. _Biometrical Journal: Journal of Mathematical Methods in Biosciences_, 47(4), 458-472.
 
