@@ -16,6 +16,27 @@
 
 This Python package implements methodologies from our research outputs [[1]](#1) [[2]](#2) that enable educators to predict student academic outcomes and identify at-risk students efficiently, and integrates regression analysis with binary classification to predict student academic outcomes. Designed for ease of use, this package allows educators to train models, make predictions, and visualize results with **just one line of code** using **their own datasets**. This accessibility ensures that sophisticated algorithms are readily available to users with varying levels of IT expertise.
 
+## Citation
+
+<table>
+  <tr>
+    <td width="150">
+      <img src="https://media.springernature.com/w316/springer-static/cover-hires/book/978-981-95-0872-3?as=webp" alt="Book Cover" width="100%">
+    </td>
+    <td>
+      If you use this package in your research, please cite our paper:
+      <br><br>
+      Dong, C., et al. (2026). <b>A Data-Analytical Framework for the Early Detection of At-Risk Students in Higher Education</b>. In: Ventura, M.D., Zhan, Z. (eds) <i>Exploring Innovations in Educational Technology: The ICEIT’25 Collection</i>. Lecture Notes in Educational Technology. Springer, Singapore. <a href="https://doi.org/10.1007/978-981-95-0872-3_2">https://doi.org/10.1007/978-981-95-0872-3_2</a>
+      <br><br>
+      <ul>
+        <li><a href="https://link.springer.com/chapter/10.1007/978-981-95-0872-3_2"><b>📖 Paper Link (Springer)</b></a></li>
+        <li><a href="https://www.researchgate.net/publication/394263815_A_Data-Analytical_Framework_for_the_Early_Detection_of_At-Risk_Students_in_Higher_Education_Course-Level_Model?_sg%5B0%5D=NarsnNWWIomjIjsojOl06_Hj_DWIxktl8ru2Z-YP_AiQmkQ35oIrE8qJHrBtB_FXmWQJJ7ovu3j014cxhWbgNuxJC9cDR6zABLOJrcNC.GN7wUZUkKNxV7w9-hBAR6Ie8LSoS-ihVlJ7mLtzhcD0GOC5aTSDrP4cgCfDHVjJNAo4uu8FHZa8UHvLL8zD3qQ&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6ImhvbWUiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19"><b>📊 Presentation Slides (ResearchGate)</b></a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+
 ## Table of Contents
 <details>
   <summary>Click to expand</summary>
@@ -213,7 +234,7 @@ Applied on Kaggle Dataset: Object Oriented Programming Class Student Grades data
 [![Kaggle](https://img.shields.io/badge/Kaggle-035a7d?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/code/ddatad/dualpredictor-demo)
 
 ---
-
+  
 ## References
 
 <a id="1">[1]</a> Dong, C., Yip, J. C., Ling, A. M. H., Kwan, J. L. Y., Yu, P. L. H., Cheng, M. H. M., Lee, J. C. & Li, W. K. *"A Data-Analytical Framework for the Early Detection of At-Risk Students in Higher Education."* In Della Ventura, M. & Zhan, Z. (eds.), Exploring Innovations in Educational Technology: The ICEIT'25 Collection, Lecture Notes in Educational Technology (Chapters 1-2). Springer Nature, Singapore. 2025.
