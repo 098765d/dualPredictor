@@ -21,7 +21,7 @@ This Python package implements methodologies from our research outputs [[1]](#1)
 <table>
   <tr>
     <td width="150">
-      <img src="https://media.springernature.com/w316/springer-static/cover-hires/book/978-981-95-0872-3?as=webp" alt="Book Cover" width="100%">
+      <img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-981-95-0872-3?as=webp" alt="Book Cover" width="100%">
     </td>
     <td>
       If you use this package in your research, please cite our paper:
